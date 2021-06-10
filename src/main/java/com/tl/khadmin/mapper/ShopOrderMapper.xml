@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tl.khadmin.mapper.ShopOrderMapper">
+  <resultMap id="BaseResultMap" type="com.tl.khadmin.bean.ShopOrder">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="ordersn" jdbcType="VARCHAR" property="ordersn" />
+    <result column="vipid" jdbcType="INTEGER" property="vipid" />
+    <result column="orderprice" jdbcType="REAL" property="orderprice" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="proid" jdbcType="INTEGER" property="proid" />
+    <result column="cityid" jdbcType="INTEGER" property="cityid" />
+    <result column="districtid" jdbcType="INTEGER" property="districtid" />
+    <result column="townid" jdbcType="INTEGER" property="townid" />
+    <result column="districtFullName" jdbcType="VARCHAR" property="districtfullname" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="receiver" jdbcType="VARCHAR" property="receiver" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="expresscompany" jdbcType="VARCHAR" property="expresscompany" />
+    <result column="expressnumber" jdbcType="VARCHAR" property="expressnumber" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, ordersn, vipid, orderprice, state, proid, cityid, districtid, townid, districtFullName, 
+    address, receiver, mobile, phone, createtime,expresscompany,expressnumber
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from khshoporder
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from khshoporder
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tl.khadmin.bean.ShopOrder">
+    insert into khshoporder (id, ordersn, vipid, 
+      orderprice, state, proid, 
+      cityid, districtid, townid, 
+      districtFullName, address, receiver, 
+      mobile, phone, createtime,expresscompany,expressnumber
+      )
+    values (#{id,jdbcType=INTEGER}, #{ordersn,jdbcType=VARCHAR}, #{vipid,jdbcType=INTEGER}, 
+      #{orderprice,jdbcType=REAL}, #{state,jdbcType=INTEGER}, #{proid,jdbcType=INTEGER}, 
+      #{cityid,jdbcType=INTEGER}, #{districtid,jdbcType=INTEGER}, #{townid,jdbcType=INTEGER}, 
+      #{districtfullname,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{receiver,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
+      #{expresscompany,jdbcType=VARCHAR}, #{expressnumber,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tl.khadmin.bean.ShopOrder">
+    insert into khshoporder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="ordersn != null">
+        ordersn,
+      </if>
+      <if test="vipid != null">
+        vipid,
+      </if>
+      <if test="orderprice != null">
+        orderprice,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="proid != null">
+        proid,
+      </if>
+      <if test="cityid != null">
+        cityid,
+      </if>
+      <if test="districtid != null">
+        districtid,
+      </if>
+      <if test="townid != null">
+        townid,
+      </if>
+      <if test="districtfullname != null">
+        districtFullName,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="receiver != null">
+        receiver,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+       <if test="expresscompany != null">
+        expresscompany,
+      </if>
+       <if test="expressnumber != null">
+        expressnumber,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ordersn != null">
+        #{ordersn,jdbcType=VARCHAR},
+      </if>
+      <if test="vipid != null">
+        #{vipid,jdbcType=INTEGER},
+      </if>
+      <if test="orderprice != null">
+        #{orderprice,jdbcType=REAL},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="proid != null">
+        #{proid,jdbcType=INTEGER},
+      </if>
+      <if test="cityid != null">
+        #{cityid,jdbcType=INTEGER},
+      </if>
+      <if test="districtid != null">
+        #{districtid,jdbcType=INTEGER},
+      </if>
+      <if test="townid != null">
+        #{townid,jdbcType=INTEGER},
+      </if>
+      <if test="districtfullname != null">
+        #{districtfullname,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="receiver != null">
+        #{receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expresscompany != null">
+        #{expresscompany,jdbcType=VARCHAR},
+      </if>
+      <if test="expressnumber != null">
+        #{expressnumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tl.khadmin.bean.ShopOrder">
+    update khshoporder
+    <set>
+      <if test="ordersn != null">
+        ordersn = #{ordersn,jdbcType=VARCHAR},
+      </if>
+      <if test="vipid != null">
+        vipid = #{vipid,jdbcType=INTEGER},
+      </if>
+      <if test="orderprice != null">
+        orderprice = #{orderprice,jdbcType=REAL},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="proid != null">
+        proid = #{proid,jdbcType=INTEGER},
+      </if>
+      <if test="cityid != null">
+        cityid = #{cityid,jdbcType=INTEGER},
+      </if>
+      <if test="districtid != null">
+        districtid = #{districtid,jdbcType=INTEGER},
+      </if>
+      <if test="townid != null">
+        townid = #{townid,jdbcType=INTEGER},
+      </if>
+      <if test="districtfullname != null">
+        districtFullName = #{districtfullname,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="receiver != null">
+        receiver = #{receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expresscompany != null">
+        expresscompany = #{expresscompany,jdbcType=VARCHAR},
+      </if>
+      <if test="expressnumber != null">
+        expressnumber = #{expressnumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tl.khadmin.bean.ShopOrder">
+    update khshoporder
+    set ordersn = #{ordersn,jdbcType=VARCHAR},
+      vipid = #{vipid,jdbcType=INTEGER},
+      orderprice = #{orderprice,jdbcType=REAL},
+      state = #{state,jdbcType=INTEGER},
+      proid = #{proid,jdbcType=INTEGER},
+      cityid = #{cityid,jdbcType=INTEGER},
+      districtid = #{districtid,jdbcType=INTEGER},
+      townid = #{townid,jdbcType=INTEGER},
+      districtFullName = #{districtfullname,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      receiver = #{receiver,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      expresscompany = #{expresscompany,jdbcType=VARCHAR},
+      expressnumber = #{expressnumber,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectOrderByPage" parameterType="Map" resultType="Map">
+		select shop.*,vip.nickName nickName
+		from khshoporder shop left join khvip vip on vip.id=shop.vipid 
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="startTime!=null and startTime!=''">
+				and shop.createtime &gt;= #{startTime,jdbcType=INTEGER}
+			</if>
+			<if test="endTime!=null and endTime!=''">
+				and shop.createtime &lt;= #{endTime,jdbcType=INTEGER}
+			</if>
+			<if test="ordersn!=null and ordersn!=''">
+				and shop.ordersn LIKE CONCAT(CONCAT('%',#{ordersn,jdbcType=VARCHAR}),'%')
+			</if>
+			<if test="state!=null">
+				and shop.state = #{state,jdbcType=INTEGER}
+			</if> 
+			<if test="nickName!=null and nickName!=''">
+				and vip.nickName LIKE CONCAT(CONCAT('%',#{nickName,jdbcType=VARCHAR}),'%')
+			</if>
+			<if test="receiver!=null and receiver!=''">
+				and shop.receiver LIKE CONCAT(CONCAT('%',#{receiver,jdbcType=VARCHAR}),'%')
+			</if>
+			<if test="mobile!=null and mobile!=''">
+				and shop.mobile = #{mobile,jdbcType=VARCHAR}
+			</if>
+		</trim>
+		order by shop.createtime desc
+  </select>
+  <select id="selectById" parameterType="java.lang.Integer" resultType="Map">
+    select shop.*,vip.nickName nickName 
+    from khshoporder shop left join khvip vip on vip.id=shop.vipid
+    where shop.id = #{id,jdbcType=INTEGER}
+  </select>
+</mapper>

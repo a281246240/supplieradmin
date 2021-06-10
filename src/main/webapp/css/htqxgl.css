@@ -1,0 +1,37 @@
+@charset "utf-8";
+.panel-heading{
+	position:relative;
+}
+.panel-heading ul{
+	position:absolute;
+	right:10px;
+	top:0px;
+}
+.panel-heading li{
+	float:left;
+	margin-left:1px;
+	height:35px;
+	line-height:35px;
+	width:72px;
+	text-align:center;
+	color:#428bca;
+}
+.tab-content li{
+	float:left;
+	width:400px;
+	margin-left:30px;
+	margin-top:30px;
+}
+.tab-content .vip_details{
+	background-color:#d3d3d3;
+	width:400px;
+	height:130px;
+	border-radius:10px;
+	margin-top:20px;
+}
+.tab-content .vip_details li{
+	float:left;
+	width:150px;
+	margin-left:15px;
+	margin-top:15px;
+}

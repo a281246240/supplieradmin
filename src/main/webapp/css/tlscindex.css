@@ -1,0 +1,741 @@
+@charset "utf-8";
+@media (min-width: 1200px) {}
+@media (max-width: 1250px) {/*body{-moz-transform:scale(0.9);-moz-transform-origin:top left;zoom:0.9;width:1350px;}*/}
+@media (min-width: 768px) {}
+/*reset start*/
+html,body,div,input,ul,li,p,i,h1,h3,span,i,table{margin: 0;padding: 0;}
+html{font-family: "微软雅黑";font-size: 12px;}
+body{font-family: "微软雅黑";font-size: 12px;background-color: #f5f5f5;color:#3d3d3d;min-width:1250px;}
+input,h3,button,button:focus{outline: none;}
+li{list-style: none;}
+a,a:hover,a:active,a:focus{text-decoration: none;outline:none;}
+a{outline:none;}
+/*reset end*/
+/*clear start*/
+.clearfix:after{content: '';display: block;visibility: hidden;height: 0;clear: both;}
+.clearfix{zoom: 1;}
+/*clear end*/
+/*****************************************************common start*****************************************************/
+.red{color:red;}
+.orange{color:#ef764f;}
+.blue{color:#33618c;}
+.sblue{color:#2d50e6;}
+.green{color:#3ac93a;}
+.yellow{color:#ec971f;}
+.nowrap{white-space:nowrap;}
+.error1 i{width:18px;height:20px;display:inline-block;background:url(../img/error.png) no-repeat 0 5px;margin-bottom: -3px;}
+.error1{padding-top:52px;margin-left:30px;margin-right: 20px;}
+.all{margin-top: -2px;margin-bottom: 1px !important;vertical-align: middle;}
+.panel-title{font-size:14px;}
+input[type="radio"]:focus,input[type="checkbox"]:focus{outline:none;}
+label{white-space:nowrap;font-weight:normal;padding-left:0;padding-right:0;}
+input[type="checkbox"]{margin:0;}
+.input-sm{padding: 5px 6px;}
+.form-control[readonly]{cursor:default;}
+.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus{outline:none;}
+.table > thead > tr > td,.table > tbody > tr > td,.table > tfoot > tr > td{padding:6px 5px 3px;}
+.table > thead > tr > th {padding: 6px;}
+select{width:100%;border: solid 1px #cccccc;}
+select {appearance:none;-moz-appearance:none;-webkit-appearance:none;
+        background: url(../img/selectArrow.png)  no-repeat right center ;}
+select::-ms-expand { display: none; }
+select:focus{outline:none;}
+@media screen and (-webkit-min-device-pixel-ratio:0) {.glWrap .page select { line-height:20px; } }
+.dropdown-menu{max-height:300px;overflow:auto;}
+.container-fluid{padding:0 8px;}
+/*pagination start*/
+.pagination{margin:0;select:none;-moz-user-select:none;-webkit-user-select:none;-ms-touch-select: none;-ms-user-select: none;}
+.pagination a ,.pagination span {cursor:pointer;}
+.pagination a {text-decoration: none;background-color: #fff;color: #9fa1a0;cursor:pointer;}
+.pagination a,.pagination span {display: inline-block;padding: 6px 12px;margin-right:-1px;border: 1px solid #ddd;}
+.pagination .current {color: #fff;background-color: #9fa1a0;border-color: #9fa1a0;}
+.pagination .current.prev,.pagination .current.next{color:#999;border: 1px solid #ddd;background:#fff;}
+/*.pagination .current.prev:hover,.pagination .current.next:hover{background-color: #eeeeee;}*/
+.pagination a:hover,.pagination a:focus {background-color: #eeeeee;	}
+/*pagination end*/
+/*Three level linkage start*/
+.dropdown-menu .menu{max-height:300px;overflow: auto;}
+.dropdown-menu .nav > li > a {display: block;padding: 5px 12px 5px 16px;position: relative; color:#373636;}
+.dropdown-menu .nav > li > a >i{display:inline-block;width:8px;height:5px; background:url(../img/dropdownArrow.png) no-repeat;margin:-3px  0 0 10px;}
+.dropdown-menu .dropdown-menu1{width: 380px;}
+.dropdown-menu .nav{width: 312px;margin: auto;border:0;}
+.dropdown-menu .nav-tabs > li>a{border:1px solid #d4d3d3;}
+.dropdown-menu .nav-tabs > li.active > a,.dropdown-menu .nav-tabs > li.active > a:hover{background-color:#e7e7e7;}
+.dropdown-menu .nav-tabs > li.active > a{border-bottom:0;padding-bottom:6px;}
+.dropdown-menu .tab-content{border-top:1px solid #d4d3d3;}
+.dropdown-menu .tab-content{max-height:200px;overflow-y: auto;overflow-x:hidden;}
+.dropdown-menu .tab-content ul{width:340px;padding:0 20px;}
+.dropdown-menu .tab-content li{float: left;min-width: 100px;padding: 2px 0;}
+.dropdown-menu .tab-content li a{color:#333333;}
+.dropdown-menu .tab-content li a:hover{color:#ef6d44;}
+.dropdown-menu .tab-content div:nth-of-type(4) li{min-width:150px;}
+/*Three level linkage end*/
+/*****************************************************common end*****************************************************/
+/* header start*/
+.header1{height: 82px;width: 100%;border-bottom: 2px solid #ef6d44;background-color: #FFFFFF;}
+.header1 div{float: right;min-width: 78px;cursor: pointer;}
+.header1 div.logo{width: 150px; height: 60px;margin: 12px 0 0 25px;float: left; background:url(../img/personal.png) no-repeat ;}
+.header1 div.msg1{margin-top: 30px;}
+.header1 div span{display: block;background:url(../img/header_icons.png) no-repeat;}
+.header1 div.msg1 span{width: 24px;height: 19px;float: right;color: #FFFFFF;text-align: center;font-size: 10px;line-height: 14px;
+					   background:url(../img/msg.png) no-repeat;margin-top:-8px;}
+.header1 div.msg1 a{color:#676970;}
+.header1 div.msg1 a:hover{color:#35363b;}
+.header1 div.admin{margin: 30px 52px 0 20px;position: relative;color:#676970;}
+.header1 div.admin:hover{color:#35363b;}
+.header1 div.admin span.ico{width: 14px;height: 16px;margin-right: 12px;background-position:-26px 0 ;float: left;}
+.header1 div.admin span.rec{width: 8px;height: 16px; background:url(../img/rect.png) no-repeat 0px 6px;float: right;margin-left:8px;}
+.header1 div.admin:hover span.rec{background-position:-8px 6px;}
+.header1 .forAdmin{position:relative;z-index:100;width:119px;height:114px;background: url(../img/dropBox.png) no-repeat;position: absolute;top: 18px;left:-12px;display: none;}
+.header1 .forAdmin li{padding:7px 7px 12px 8px}
+.header1 .forAdmin li.set{margin-top: 9px;}
+.header1 .forAdmin li a{color:#c7c9d3;display:block;width:100%;height:100%;}
+.header1 .forAdmin li i{background: url(../img/drap.png) no-repeat;display: block;width: 13px;height: 13px;float: left;}
+.header1 .forAdmin li.set i{background-position: -17px 0;margin: 3px 9px 0 12px;}
+.header1 .forAdmin li.exit i{background-position: -17px -17px;margin: 3px 9px 0 12px;}
+/*header end */
+/*main start */
+.main{background-color: #f5f5f5;}
+.content {width: 100%;margin-right: auto;margin-left: auto;overflow:hidden;}
+.content .main {float: left;width: 100%;padding-bottom:2000px;margin-bottom:-2000px;}
+.content .navtab{height: 40px;float: right;width:100%;margin-left:180px;background-color:#ffffff;border-bottom:1px solid #dddddd;}
+.content .main .main-content {margin:50px 0  0 158px;min-height: 880px;}
+.sidebar1 {float: left;margin-left: -100%;padding-bottom:9999px;margin-bottom:-9999px;}			
+/*main end*/
+/*nav start*/
+.content .navtab{position:relative;overflow:hidden;}
+.content .navtab ul{margin-left:158px;left:0;position: absolute;width:9999px;}
+.content .navtab li,.content .navtab ul{float:left;}
+.content .navtab li>a{display:block;font-size:14px;color:#232323;padding:12px 25px 12px 12px;}
+.content .navtab li.active a{/* padding:12px 24px 12px 11px; */background-color:#e7e7e8;border:1px solid #dddddd;border-width:0 1px;}
+.content .navtab li span{float:right;padding:8px;cursor:pointer;display:none;}
+.content .navtab li.active span{display:block;}
+.content .navtab li:hover span{display:block;}
+.content .navtab li span:hover{color:#ef6d44;}
+.content .navtab li.homepage a{padding:12px 25px 12px 25px;}
+.content .navtab li.homepage.active a{padding:12px 24px 12px 24px;}
+.content .l-tab-links-left,.content .l-tab-links-right{width:16px;height:40px;top:0;display:none;font-size: 16px;line-height: 43px;position: absolute;top: 1px;z-index: 13;}
+.content .l-tab-links-right{right: 0;background:#ffffff url(../img/navRight.png) no-repeat center;border-left:1px solid #dddddd;}
+.content .l-tab-links-left{left: 158px;background:#ffffff url(../img/navLeft.png) no-repeat center;border-right:1px solid #dddddd;}
+/*nav end*/
+/*sidebar1 start*/
+.sidebar1{position:relative;z-index:20px;width: 158px;background: #363633;select:none;-moz-user-select:none;-webkit-user-select:none;-ms-touch-select: none;-ms-user-select: none;}
+.sidebar1 h3{height: 40px;font-size: 13px;color: #c7c9d3;font-family: "微软雅黑";font-weight: normal; border-bottom: 1px solid #282826;border-top: 1px solid #4a4a47;
+			line-height: 38px;cursor: pointer;margin: 0;background:#363633;}
+.sidebar1 h3 span.ico{width: 18px;height: 18px;display: block;float: left; background:url(../img/siderbar_icons.png) no-repeat;margin: 12px 20px 0 15px;}
+.sidebar1 h3.home span.ico{background-position-x: -29px;}
+.sidebar1 h3.home a{width:100%;height:100%;font-size: 13px;color: #c7c9d3;font-family: "微软雅黑";font-weight: normal; }
+.sidebar1 h3.home{background-color:#282826;}
+.sidebar1 h3.order>span.ico{background-position-y: -355px;}
+.sidebar1 h3.member>span.ico{background-position-y: -31px;}
+.sidebar1 h3.finance>span.ico{background-position-y: -181px;}
+.sidebar1 h3.approve>span.ico{background-position-y: -60px;}
+.sidebar1 h3.system>span.ico{background-position-y: -304px;}
+.sidebar1 h3.help>span.ico{background-position-y: -242px;}
+.sidebar1 h3.backstage>span.ico{background-position-y: -272px;}
+.sidebar1 h3.authority>span.ico{background-position-y: -120px;}
+.sidebar1 h3>i.re{width: 12px;height: 12px;display: block;float:right; background:url(../img/rect1.png) no-repeat -11px 0;margin-top: 14px;margin-right: 22px;}
+.sidebar1 ul{border-bottom: 1px solid #282826;}
+.sidebar1 ul li a{font-size: 12px;font-family: "微软雅黑";font-weight: normal;color: #c7c9d3;padding-left: 52px;display:block;width:100%;height:100%;}
+.sidebar1 ul li a:hover{text-decoration: none;}
+.sidebar1 ul li{cursor: pointer;height:33px;line-height: 32px;}
+.sidebar1 .sideLine{margin:0;border-top:1px solid #4a4a47;}
+.sidebar1 .accordion  div{display:none;}
+/*sidebar1 end*/
+/*footer start*/
+.footer{background:#ffffff;}
+.footer p{padding:30px 0;text-align:center;font-weight: 14px;color: #999999;}
+/*footer end*/
+/*loading start*/
+@charset "utf-8";
+.loading {background-color: rgba(255,255,255,0.4);height: 100%;width: 100%;position: fixed;z-index: 1;margin-top: 118px;top: 0px;left:166px;}
+.loading-center {width: 100%;height: 100%;position: relative;}
+.loading-center-absolute {position: absolute;left: 40%;top: 30%;height: 60px;width: 60px;margin-top: -30px;margin-left: -30px;
+						  -webkit-animation: loading-center-absolute 1s infinite;animation: loading-center-absolute 1s infinite;}
+.object {width: 20px;height: 20px;background-color: #5392ec;float: left;-moz-border-radius: 50% 50% 50% 50%;-webkit-border-radius: 50% 50% 50% 50%;
+		border-radius: 50% 50% 50% 50%;margin-right: 20px;margin-bottom: 20px;}
+.object:nth-child(2n+0){margin-right: 0px;}
+.object_one {-webkit-animation: object_one 1s infinite;animation: object_one 1s infinite;}
+.object_two {-webkit-animation: object_two 1s infinite;animation: object_two 1s infinite;}
+.object_three {-webkit-animation: object_three 1s infinite;animation: object_three 1s infinite;}
+.object_four {-webkit-animation: object_four 1s infinite;animation: object_four 1s infinite;}
+@-webkit-keyframes loading-center-absolute {
+	100% {
+		-ms-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@keyframes loading-center-absolute {
+	100% {
+		-ms-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes object_one {
+	50% {
+		-ms-transform: translate(20px, 20px);
+		-webkit-transform: translate(20px, 20px);
+		transform: translate(20px, 20px);
+	}
+}
+@keyframes object_one {
+	50% {
+		-ms-transform: translate(20px, 20px);
+		-webkit-transform: translate(20px, 20px);
+		transform: translate(20px, 20px);
+	}
+}
+@-webkit-keyframes object_two {
+	50% {
+		-ms-transform: translate(-20px, 20px);
+		-webkit-transform: translate(-20px, 20px);
+		transform: translate(-20px, 20px);
+	}
+}
+@keyframes object_two {
+	50% {
+		-ms-transform: translate(-20px, 20px);
+		-webkit-transform: translate(-20px, 20px);
+		transform: translate(-20px, 20px);
+	}
+}
+
+@-webkit-keyframes object_three {
+	50% {
+		-ms-transform: translate(20px, -20px);
+		-webkit-transform: translate(20px, -20px);
+		transform: translate(20px, -20px);
+	}
+}
+@keyframes object_three {
+	50% {
+		-ms-transform: translate(20px, -20px);
+		-webkit-transform: translate(20px, -20px);
+		transform: translate(20px, -20px);
+	}
+}
+
+@-webkit-keyframes object_four {
+	50% {
+		-ms-transform: translate(-20px, -20px);
+		-webkit-transform: translate(-20px, -20px);
+		transform: translate(-20px, -20px);
+	}
+}
+@keyframes object_four {
+	50% {
+		-ms-transform: translate(-20px, -20px);
+		-webkit-transform: translate(-20px, -20px);
+		transform: translate(-20px, -20px);
+	}
+}
+/*loading end*/
+/*******************************************公共模块的样式start(弹出层)**************************************************************/
+/*commonConfirm start*/
+.commonConfirm .modal-dialog{width: 292px;height: 185px;border-radius: 5px;margin:200px auto; }
+.commonConfirm h2{padding: 7px 10px 6px;color:#8b5f54;font-size: 15px;font-weight: normal;font-family: "微软雅黑";}
+.commonConfirm h2 i{display:inline-block;width: 24px;height: 24px;background: url(../img/warn1.png) no-repeat;vertical-align: middle;margin-right: 13px;}
+.commonConfirm .modal-header{padding:1px 0 ;background-color: #f9f2f2;border-bottom-color: #f2dede;border-radius: 5px 5px 0 0;}
+.commonConfirm p span.item-name{color: #dc2c2c;}
+.commonConfirm .modal-body>p{padding:3px 0;}
+.commonConfirm .btn-gro{margin-bottom: 26px;}
+.commonConfirm .btn-gro .go,.commonConfirm .btn-gro .back{font-size:14px;width: 90px;height: 36px;margin:0 15px;}
+.commonConfirm .btn-gro .go{background:#e7726f;color:#ffffff;box-shadow:inset 0 -3px 2px #d26562;border: 1px solid #d26562;}
+.commonConfirm .btn-gro .back{border: 1px solid #bfc0c0;background:#f9f9f9;box-shadow:inset 0 -2px 2px #c5c6c6;}
+.commonConfirm .btn-gro .go:hover{background:#ea7c79;}
+.commonConfirm .btn-gro .back:hover{background: #f1f1f1;}
+.commonConfirm .btn:focus{outline: none;}
+/*commonConfirm end*/
+/*commonConfirm1 start*/
+.commonConfirm1 .modal-dialog{width: 292px;height: 185px;border-radius: 5px;margin:200px auto; }
+.commonConfirm1 h2{padding: 26px 10px 14px;color:#47a747;font-size: 15px;font-weight: normal;font-family: "微软雅黑";}
+.commonConfirm1 h2 i{display:inline-block;width: 24px;height: 24px;background: url(../img/success4.png) no-repeat;vertical-align: middle;margin-right: 13px;}
+.commonConfirm1 .modal-header{padding:1px 0 ;background-color: #e8f5f5;border-bottom-color: #d8e9e9;border-radius: 5px 5px 0 0;}
+.commonConfirm1 p span.item-name{color: #329058;}
+.commonConfirm1 .modal-body>p{padding:3px 0;}
+.commonConfirm1 .btn-gro{margin-bottom: 26px;}
+.commonConfirm1 .btn-gro .go,.commonConfirm1 .btn-gro .back{font-size:14px;width: 90px;height: 36px;margin:0 15px;}
+.commonConfirm1 .btn-gro .go{background:#60ba84;color:#ffffff;box-shadow:inset 0 -3px 2px #4eb075;border: 1px solid #4eb075;}
+.commonConfirm1 .btn-gro .back{border: 1px solid #bfc0c0;background:#f9f9f9;box-shadow:inset 0 -2px 2px #c5c6c6;}
+.commonConfirm1 .btn-gro .go:hover{background:#66c28b;}
+.commonConfirm1 .btn-gro .back:hover{background: #f1f1f1;}
+.commonConfirm1 .btn:focus{outline: none;}
+/*commonConfirm1 end*/
+/*mySuccessModal start*/
+.mySuccessModal .modal-dialog{width: 360px;height: 204px;border-radius: 5px;margin:200px auto; }
+.mySuccessModal h2{color:#47a747;font-size: 17px;font-weight: normal;font-family: "微软雅黑";background: url(../img/success1.png) no-repeat 96px 0;
+		                   padding:15px 0   15px 60px;}
+.mySuccessModal .modal-header{padding: 10px;background-color: #e8f5f5;border-bottom-color: #d8e9e9;border-radius: 5px 5px 0 0;}
+.mySuccessModal p{color: #72918a;}
+.mySuccessModal .btn-gro{margin-bottom: 26px;}
+.mySuccessModal .btn-gro .go,.btn-gro .back{font-size:14px;width: 108px;height: 36px;margin:0 15px;}
+.mySuccessModal .btn-gro .go{background:#4cb8cf;color:#ffffff;box-shadow:inset 0 -3px 2px #46a1b5;}
+.mySuccessModal .btn-gro .back{border: 1px solid #bfc0c0;box-shadow:inset 0 -3px 2px #cecece;}
+.mySuccessModal .btn-gro .go:hover{background:#46a1b5;color:#ffffff;}
+/*mySuccessModal end*/
+/*mySuccessModal1 start*/
+.mySuccessModal1 .modal-dialog{width: 360px;height: 204px;border-radius: 5px;margin:200px auto; }
+.mySuccessModal1 h2{color:#47a747;font-size: 17px;font-weight: normal;font-family: "微软雅黑";
+		                   padding:15px 0   15px 0px;}
+.mySuccessModal1 h2>i{display:inline-block;background:url(../img/success1.png) no-repeat;width:53px;height:53px;margin-right: 6px;vertical-align: middle;}
+.mySuccessModal1 .modal-header{padding: 10px;background-color: #e8f5f5;border-bottom-color: #d8e9e9;border-radius: 5px 5px 0 0;}
+.mySuccessModal1 p{color: #72918a;}
+.mySuccessModal1 .btn-gro{margin-bottom: 26px;}
+.mySuccessModal1 .btn-gro .go,.btn-gro .back{font-size:14px;width: 108px;height: 36px;margin:0 15px;}
+.mySuccessModal1 .btn-gro .go{background:#4cb8cf;color:#ffffff;box-shadow:inset 0 -3px 2px #46a1b5;}
+.mySuccessModal1 .btn-gro .back{border: 1px solid #bfc0c0;box-shadow:inset 0 -3px 2px #cecece;}
+.mySuccessModal1 .btn-gro .go:hover{background:#46a1b5;color:#ffffff;}
+/*mySuccessModal1 end*/
+/*mySuccessModal2 start*/
+.mySuccessModal2 .modal-dialog{width: 210px;margin:200px auto; }
+.mySuccessModal2 h2{color:#47a747;font-size: 17px;font-weight: normal;font-family: "微软雅黑";margin-top:12px;/*padding:10px 0   10px 0px;*/}
+.mySuccessModal2 h2>i{display:inline-block;background:url(../img/success2.png) no-repeat;width:40px;height:40px;margin-right: 6px;vertical-align: middle;}
+.mySuccessModal2 .modal-header{height:66px;padding: 2px;background-color: #e8f5f5;border-bottom-color: #d8e9e9;border-radius: 5px;}
+/*mySuccessModal2 end*/
+/*alert start*/
+.alert .modal-dialog{width: 314px;height: 192px;border-radius: 5px;margin:200px auto; }		
+.alert .modal-header{height:114px;background-color: #f9f1f1;border-bottom-color: #f4dddd;border-radius: 5px 5px 0 0;}
+.alert p{color: #8b5454;padding: 30px 0;font-size:16px ;}
+.alert i{display: inline-block;width: 24px;height: 21px;background: url(../img/warn1.png) no-repeat;vertical-align: bottom;margin-right: 10px;}
+.alert .go{font-size:14px;width: 108px;height: 36px;margin:0 15px;margin-top: 4px;}
+.alert .go{background:#4cb8cf;color:#ffffff;box-shadow:inset 0 -3px 2px #46a1b5;}
+.alert .go:hover{background:#46a1b5;color:#ffffff;}
+.alert .modal-body{height: 77px;}
+/*alert end*/
+/*alert start*/
+.alert1 .modal-dialog{width: 300px;margin:200px auto;padding:0 10px; }
+.alert1 h2{color:#8b5454;font-size: 14px;font-weight: normal;font-family: "微软雅黑";margin-top:21px;/*padding:10px 0   10px 0px;*/}
+.alert1 h2>i{display:inline-block;background:url(../img/warn1.png) no-repeat;width:24px;height:23px;margin-right: 6px;vertical-align: middle;}
+.alert1 .modal-header{height:66px;padding: 2px;background-color: #f9f1f1;border-bottom-color: #f4dddd;border-radius: 5px;}
+/*alert end*/
+/*******************************************公共模块的样式end(弹出层)**************************************************************/
+/*****************Datetimepicker start*****************/
+/*!
+ * Datetimepicker for Bootstrap
+ *
+ * Copyright 2012 Stefan Petre
+ * Improvements by Andrew Rowls
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+.datetimepicker {
+	padding: 4px;
+	margin-top: 1px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	direction: ltr;
+}
+
+.datetimepicker-inline {
+	width: 220px;
+}
+
+.datetimepicker.datetimepicker-rtl {
+	direction: rtl;
+}
+
+.datetimepicker.datetimepicker-rtl table tr td span {
+	float: right;
+}
+
+.datetimepicker-dropdown, .datetimepicker-dropdown-left {
+	top: 0;
+	left: 0;
+}
+
+[class*=" datetimepicker-dropdown"]:before {
+	content: '';
+	display: inline-block;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-bottom: 7px solid #cccccc;
+	border-bottom-color: rgba(0, 0, 0, 0.2);
+	position: absolute;
+}
+
+[class*=" datetimepicker-dropdown"]:after {
+	content: '';
+	display: inline-block;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-bottom: 6px solid #ffffff;
+	position: absolute;
+}
+
+[class*=" datetimepicker-dropdown-top"]:before {
+	content: '';
+	display: inline-block;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-top: 7px solid #cccccc;
+	border-top-color: rgba(0, 0, 0, 0.2);
+	border-bottom: 0;
+}
+
+[class*=" datetimepicker-dropdown-top"]:after {
+	content: '';
+	display: inline-block;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #ffffff;
+	border-bottom: 0;
+}
+
+.datetimepicker-dropdown-bottom-left:before {
+	top: -7px;
+	right: 6px;
+}
+
+.datetimepicker-dropdown-bottom-left:after {
+	top: -6px;
+	right: 7px;
+}
+
+.datetimepicker-dropdown-bottom-right:before {
+	top: -7px;
+	left: 6px;
+}
+
+.datetimepicker-dropdown-bottom-right:after {
+	top: -6px;
+	left: 7px;
+}
+
+.datetimepicker-dropdown-top-left:before {
+	bottom: -7px;
+	right: 6px;
+}
+
+.datetimepicker-dropdown-top-left:after {
+	bottom: -6px;
+	right: 7px;
+}
+
+.datetimepicker-dropdown-top-right:before {
+	bottom: -7px;
+	left: 6px;
+}
+
+.datetimepicker-dropdown-top-right:after {
+	bottom: -6px;
+	left: 7px;
+}
+
+.datetimepicker > div {
+	display: none;
+}
+
+.datetimepicker.minutes div.datetimepicker-minutes {
+	display: block;
+}
+
+.datetimepicker.hours div.datetimepicker-hours {
+	display: block;
+}
+
+.datetimepicker.days div.datetimepicker-days {
+	display: block;
+}
+
+.datetimepicker.months div.datetimepicker-months {
+	display: block;
+}
+
+.datetimepicker.years div.datetimepicker-years {
+	display: block;
+}
+
+.datetimepicker table {
+	margin: 0;
+}
+
+.datetimepicker  td,
+.datetimepicker th {
+	text-align: center;
+	width: 20px;
+	height: 20px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: none;
+}
+
+.table-striped .datetimepicker table tr td,
+.table-striped .datetimepicker table tr th {
+	background-color: transparent;
+}
+
+.datetimepicker table tr td.minute:hover {
+	background: #eeeeee;
+	cursor: pointer;
+}
+
+.datetimepicker table tr td.hour:hover {
+	background: #eeeeee;
+	cursor: pointer;
+}
+
+.datetimepicker table tr td.day:hover {
+	background: #eeeeee;
+	cursor: pointer;
+}
+
+.datetimepicker table tr td.old,
+.datetimepicker table tr td.new {
+	color: #999999;
+}
+
+.datetimepicker table tr td.disabled,
+.datetimepicker table tr td.disabled:hover {
+	background: none;
+	color: #999999;
+	cursor: default;
+}
+
+.datetimepicker table tr td.today,
+.datetimepicker table tr td.today:hover,
+.datetimepicker table tr td.today.disabled,
+.datetimepicker table tr td.today.disabled:hover {
+	background-color: #fde19a;
+	background-image: -moz-linear-gradient(top, #fdd49a, #fdf59a);
+	background-image: -ms-linear-gradient(top, #fdd49a, #fdf59a);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fdd49a), to(#fdf59a));
+	background-image: -webkit-linear-gradient(top, #fdd49a, #fdf59a);
+	background-image: -o-linear-gradient(top, #fdd49a, #fdf59a);
+	background-image: linear-gradient(to bottom, #fdd49a, #fdf59a);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdd49a', endColorstr='#fdf59a', GradientType=0);
+	border-color: #fdf59a #fdf59a #fbed50;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.datetimepicker table tr td.today:hover,
+.datetimepicker table tr td.today:hover:hover,
+.datetimepicker table tr td.today.disabled:hover,
+.datetimepicker table tr td.today.disabled:hover:hover,
+.datetimepicker table tr td.today:active,
+.datetimepicker table tr td.today:hover:active,
+.datetimepicker table tr td.today.disabled:active,
+.datetimepicker table tr td.today.disabled:hover:active,
+.datetimepicker table tr td.today.active,
+.datetimepicker table tr td.today:hover.active,
+.datetimepicker table tr td.today.disabled.active,
+.datetimepicker table tr td.today.disabled:hover.active,
+.datetimepicker table tr td.today.disabled,
+.datetimepicker table tr td.today:hover.disabled,
+.datetimepicker table tr td.today.disabled.disabled,
+.datetimepicker table tr td.today.disabled:hover.disabled,
+.datetimepicker table tr td.today[disabled],
+.datetimepicker table tr td.today:hover[disabled],
+.datetimepicker table tr td.today.disabled[disabled],
+.datetimepicker table tr td.today.disabled:hover[disabled] {
+	background-color: #fdf59a;
+}
+
+.datetimepicker table tr td.today:active,
+.datetimepicker table tr td.today:hover:active,
+.datetimepicker table tr td.today.disabled:active,
+.datetimepicker table tr td.today.disabled:hover:active,
+.datetimepicker table tr td.today.active,
+.datetimepicker table tr td.today:hover.active,
+.datetimepicker table tr td.today.disabled.active,
+.datetimepicker table tr td.today.disabled:hover.active {
+	background-color: #fbf069;
+}
+
+.datetimepicker table tr td.active,
+.datetimepicker table tr td.active:hover,
+.datetimepicker table tr td.active.disabled,
+.datetimepicker table tr td.active.disabled:hover {
+	background-color: #006dcc;
+	background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+	background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+	background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+	background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+	background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc', endColorstr='#0044cc', GradientType=0);
+	border-color: #0044cc #0044cc #002a80;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.datetimepicker table tr td.active:hover,
+.datetimepicker table tr td.active:hover:hover,
+.datetimepicker table tr td.active.disabled:hover,
+.datetimepicker table tr td.active.disabled:hover:hover,
+.datetimepicker table tr td.active:active,
+.datetimepicker table tr td.active:hover:active,
+.datetimepicker table tr td.active.disabled:active,
+.datetimepicker table tr td.active.disabled:hover:active,
+.datetimepicker table tr td.active.active,
+.datetimepicker table tr td.active:hover.active,
+.datetimepicker table tr td.active.disabled.active,
+.datetimepicker table tr td.active.disabled:hover.active,
+.datetimepicker table tr td.active.disabled,
+.datetimepicker table tr td.active:hover.disabled,
+.datetimepicker table tr td.active.disabled.disabled,
+.datetimepicker table tr td.active.disabled:hover.disabled,
+.datetimepicker table tr td.active[disabled],
+.datetimepicker table tr td.active:hover[disabled],
+.datetimepicker table tr td.active.disabled[disabled],
+.datetimepicker table tr td.active.disabled:hover[disabled] {
+	background-color: #0044cc;
+}
+
+.datetimepicker table tr td.active:active,
+.datetimepicker table tr td.active:hover:active,
+.datetimepicker table tr td.active.disabled:active,
+.datetimepicker table tr td.active.disabled:hover:active,
+.datetimepicker table tr td.active.active,
+.datetimepicker table tr td.active:hover.active,
+.datetimepicker table tr td.active.disabled.active,
+.datetimepicker table tr td.active.disabled:hover.active {
+	background-color: #003399;
+}
+
+.datetimepicker table tr td span {
+	display: block;
+	width: 23%;
+	height: 54px;
+	line-height: 54px;
+	float: left;
+	margin: 1%;
+	cursor: pointer;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.datetimepicker .datetimepicker-hours span {
+	height: 26px;
+	line-height: 26px;
+}
+
+.datetimepicker .datetimepicker-hours table tr td span.hour_am,
+.datetimepicker .datetimepicker-hours table tr td span.hour_pm {
+	width: 14.6%;
+}
+
+.datetimepicker .datetimepicker-hours fieldset legend,
+.datetimepicker .datetimepicker-minutes fieldset legend {
+	margin-bottom: inherit;
+	line-height: 30px;
+}
+
+.datetimepicker .datetimepicker-minutes span {
+	height: 26px;
+	line-height: 26px;
+}
+
+.datetimepicker table tr td span:hover {
+	background: #eeeeee;
+}
+
+.datetimepicker table tr td span.disabled,
+.datetimepicker table tr td span.disabled:hover {
+	background: none;
+	color: #999999;
+	cursor: default;
+}
+
+.datetimepicker table tr td span.active,
+.datetimepicker table tr td span.active:hover,
+.datetimepicker table tr td span.active.disabled,
+.datetimepicker table tr td span.active.disabled:hover {
+	background-color: #006dcc;
+	background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+	background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+	background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+	background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+	background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc', endColorstr='#0044cc', GradientType=0);
+	border-color: #0044cc #0044cc #002a80;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.datetimepicker table tr td span.active:hover,
+.datetimepicker table tr td span.active:hover:hover,
+.datetimepicker table tr td span.active.disabled:hover,
+.datetimepicker table tr td span.active.disabled:hover:hover,
+.datetimepicker table tr td span.active:active,
+.datetimepicker table tr td span.active:hover:active,
+.datetimepicker table tr td span.active.disabled:active,
+.datetimepicker table tr td span.active.disabled:hover:active,
+.datetimepicker table tr td span.active.active,
+.datetimepicker table tr td span.active:hover.active,
+.datetimepicker table tr td span.active.disabled.active,
+.datetimepicker table tr td span.active.disabled:hover.active,
+.datetimepicker table tr td span.active.disabled,
+.datetimepicker table tr td span.active:hover.disabled,
+.datetimepicker table tr td span.active.disabled.disabled,
+.datetimepicker table tr td span.active.disabled:hover.disabled,
+.datetimepicker table tr td span.active[disabled],
+.datetimepicker table tr td span.active:hover[disabled],
+.datetimepicker table tr td span.active.disabled[disabled],
+.datetimepicker table tr td span.active.disabled:hover[disabled] {
+	background-color: #0044cc;
+}
+
+.datetimepicker table tr td span.active:active,
+.datetimepicker table tr td span.active:hover:active,
+.datetimepicker table tr td span.active.disabled:active,
+.datetimepicker table tr td span.active.disabled:hover:active,
+.datetimepicker table tr td span.active.active,
+.datetimepicker table tr td span.active:hover.active,
+.datetimepicker table tr td span.active.disabled.active,
+.datetimepicker table tr td span.active.disabled:hover.active {
+	background-color: #003399;
+}
+
+.datetimepicker table tr td span.old {
+	color: #999999;
+}
+
+.datetimepicker th.switch {
+	width: 145px;
+}
+
+.datetimepicker th span.glyphicon {
+	pointer-events: none;
+}
+
+.datetimepicker thead tr:first-child th,
+.datetimepicker tfoot th {
+	cursor: pointer;
+}
+
+.datetimepicker thead tr:first-child th:hover,
+.datetimepicker tfoot th:hover {
+	background: #eeeeee;
+}
+
+.input-append.date .add-on i,
+.input-prepend.date .add-on i,
+.input-group.date .input-group-addon span {
+	cursor: pointer;
+	width: 14px;
+	height: 14px;
+}
+/*****************Datetimepicker end*****************/
+.dsn{
+	display: none;
+}
+
+
+
+
+

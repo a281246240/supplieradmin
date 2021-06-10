@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tl.khadmin.mapper.RoleoperationMapper">
+  <resultMap id="BaseResultMap" type="com.tl.khadmin.bean.Roleoperation">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="roleoptid" jdbcType="INTEGER" property="roleoptid" />
+    <result column="operationid" jdbcType="INTEGER" property="operationid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.tl.khadmin.bean.Roleoperation">
+    <result column="param" jdbcType="LONGVARCHAR" property="param" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, roleoptid, operationid
+  </sql>
+  <sql id="Blob_Column_List">
+    param
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from khroleoperation
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from khroleoperation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tl.khadmin.bean.Roleoperation">
+    insert into khroleoperation (id, roleoptid, operationid, 
+      param)
+    values (#{id,jdbcType=INTEGER}, #{roleoptid,jdbcType=INTEGER}, #{operationid,jdbcType=INTEGER}, 
+      #{param,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tl.khadmin.bean.Roleoperation">
+    insert into khroleoperation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="roleoptid != null">
+        roleoptid,
+      </if>
+      <if test="operationid != null">
+        operationid,
+      </if>
+      <if test="param != null">
+        param,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="roleoptid != null">
+        #{roleoptid,jdbcType=INTEGER},
+      </if>
+      <if test="operationid != null">
+        #{operationid,jdbcType=INTEGER},
+      </if>
+      <if test="param != null">
+        #{param,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tl.khadmin.bean.Roleoperation">
+    update khroleoperation
+    <set>
+      <if test="roleoptid != null">
+        roleoptid = #{roleoptid,jdbcType=INTEGER},
+      </if>
+      <if test="operationid != null">
+        operationid = #{operationid,jdbcType=INTEGER},
+      </if>
+      <if test="param != null">
+        param = #{param,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.tl.khadmin.bean.Roleoperation">
+    update khroleoperation
+    set roleoptid = #{roleoptid,jdbcType=INTEGER},
+      operationid = #{operationid,jdbcType=INTEGER},
+      param = #{param,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tl.khadmin.bean.Roleoperation">
+    update khroleoperation
+    set roleoptid = #{roleoptid,jdbcType=INTEGER},
+      operationid = #{operationid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

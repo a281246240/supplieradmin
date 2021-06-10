@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tl.khadmin.mapper.RoleMapper">
+  <resultMap id="BaseResultMap" type="com.tl.khadmin.bean.Role">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="enumKey" jdbcType="VARCHAR" property="enumkey" />
+    <result column="enumValue" jdbcType="VARCHAR" property="enumvalue" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, enumKey, enumValue, name, description, type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from khrole
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from khrole
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tl.khadmin.bean.Role">
+    insert into khrole (id, enumKey, enumValue, 
+      name, description, type
+      )
+    values (#{id,jdbcType=INTEGER}, #{enumkey,jdbcType=VARCHAR}, #{enumvalue,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tl.khadmin.bean.Role">
+    insert into khrole
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="enumkey != null">
+        enumKey,
+      </if>
+      <if test="enumvalue != null">
+        enumValue,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="enumkey != null">
+        #{enumkey,jdbcType=VARCHAR},
+      </if>
+      <if test="enumvalue != null">
+        #{enumvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tl.khadmin.bean.Role">
+    update khrole
+    <set>
+      <if test="enumkey != null">
+        enumKey = #{enumkey,jdbcType=VARCHAR},
+      </if>
+      <if test="enumvalue != null">
+        enumValue = #{enumvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tl.khadmin.bean.Role">
+    update khrole
+    set enumKey = #{enumkey,jdbcType=VARCHAR},
+      enumValue = #{enumvalue,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

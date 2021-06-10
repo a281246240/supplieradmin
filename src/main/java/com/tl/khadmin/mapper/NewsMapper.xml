@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tl.khadmin.mapper.NewsMapper">
+  <resultMap id="BaseResultMap" type="com.tl.khadmin.bean.News">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="creatorid" jdbcType="INTEGER" property="creatorid" />
+    <result column="creatorname" jdbcType="VARCHAR" property="creatorname" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updateid" jdbcType="VARCHAR" property="updateid" />
+    <result column="updatename" jdbcType="VARCHAR" property="updatename" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" /> 
+    <result column="titleimg" jdbcType="VARCHAR" property="titleimg" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.tl.khadmin.bean.News">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  
+  <sql id="Blob_Column_List">
+    	id,title,content,creatorid,creatorname,state,source,createtime,updateid,updatename,updatetime,type,titleimg,summary
+  </sql>
+  <insert id="insert" parameterType="com.tl.khadmin.bean.News">
+    insert into khnews (id, title, creatorid, 
+      creatorname, state, source, 
+      createtime, updateid, updatename, 
+      updatetime, content, type,titleimg,summary)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{creatorid,jdbcType=INTEGER}, 
+      #{creatorname,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{source,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updateid,jdbcType=VARCHAR}, #{updatename,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR},#{type,jdbcType=INTEGER}, 
+      #{titleimg,jdbcType=VARCHAR},#{summary,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tl.khadmin.bean.News">
+    insert into khnews
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="creatorid != null">
+        creatorid,
+      </if>
+      <if test="creatorname != null">
+        creatorname,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="source != null">
+        source,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="updateid != null">
+        updateid,
+      </if>
+      <if test="updatename != null">
+        updatename,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="titleimg != null">
+        titleimg,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="summary != null">
+        summary,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null">
+        #{creatorid,jdbcType=INTEGER},
+      </if>
+      <if test="creatorname != null">
+        #{creatorname,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateid != null">
+        #{updateid,jdbcType=VARCHAR},
+      </if>
+      <if test="updatename != null">
+        #{updatename,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="titleimg != null">
+        #{titleimg,jdbcType=VARCHAR},
+      </if>
+       <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  
+  <select id="showNewsByPage" parameterType="Map" resultMap="BaseResultMap">
+		select 
+		<include refid="Blob_Column_List" /> 
+		from khnews 
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="startTime!=null and startTime!=''">
+				and createtime &gt;= #{startTime,jdbcType=INTEGER}
+			</if>
+			<if test="endTime!=null and endTime!=''">
+				and createtime &lt;= #{endTime,jdbcType=INTEGER}
+			</if>
+			<if test="title!=null and title!=''">
+				and title LIKE CONCAT(CONCAT('%',
+				#{title,jdbcType=VARCHAR}),'%')
+			</if>
+			<if test="type!=null">
+				and type = #{type,jdbcType=INTEGER}
+			</if> 
+			<if test="creatorname!=null and creatorname!=''">
+				and creatorname LIKE CONCAT(CONCAT('%',
+				#{creatorname,jdbcType=VARCHAR}),'%')
+			</if>
+		</trim>
+		order by createtime desc
+  </select>
+  
+  <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Blob_Column_List" />
+    from khnews 
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  
+  <update id="updateNews" parameterType="com.tl.khadmin.bean.News">
+    update khnews
+    set title = #{title,jdbcType=VARCHAR},
+      creatorid = #{creatorid,jdbcType=INTEGER},
+      creatorname = #{creatorname,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      source = #{source,jdbcType=VARCHAR},
+      updateid = #{updateid,jdbcType=VARCHAR},
+      updatename = #{updatename,jdbcType=VARCHAR},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      type = #{type,jdbcType=INTEGER},
+      titleimg = #{titleimg,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+ <delete id="deleteNewsByids" parameterType="java.lang.Object">
+ 	delete from khnews where `id` in
+ 	<foreach item="id" index="index" collection="ids" open="(" separator="," close=")">
+ 		#{id}
+ 	</foreach>
+ </delete>
+ 
+  <delete id="deleteNewsById" parameterType="java.lang.Integer">
+    delete from khnews
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+</mapper>

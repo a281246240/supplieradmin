@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tl.khadmin.mapper.SysparamMapper">
+  <resultMap id="BaseResultMap" type="com.tl.khadmin.bean.Sysparam">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="key" jdbcType="VARCHAR" property="key" />
+    <result column="value" jdbcType="VARCHAR" property="value" />
+    <result column="showname" jdbcType="VARCHAR" property="showname" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, `key`, value, showname, description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from khsysparam
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from khsysparam
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tl.khadmin.bean.Sysparam">
+    insert into khsysparam ( `key`, value,showname, description)
+    values (#{key,jdbcType=VARCHAR}, #{value,jdbcType=VARCHAR},#{showname,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tl.khadmin.bean.Sysparam">
+    insert into khsysparam
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="key != null">
+        `key`,
+      </if>
+      <if test="value != null">
+        value,
+      </if>
+      <if test="showname != null">
+        showname,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="key != null">
+        #{`key`,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null">
+        #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="showname != null">
+        #{showname,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tl.khadmin.bean.Sysparam">
+    update khsysparam
+    <set>
+      <if test="key != null">
+        `key` = #{`key`,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null">
+        value = #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="showname != null">
+        showname = #{showname,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tl.khadmin.bean.Sysparam">
+    update khsysparam
+    set `key` = #{key,jdbcType=VARCHAR},value = #{value,jdbcType=VARCHAR},showname = #{showname,jdbcType=VARCHAR},description = #{description,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getListByPage" parameterType="Map" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List" />
+  	from khsysparam
+  	<trim prefix="where" prefixOverrides="and|or">
+  		<if test="key!=null and key!=''">and `key`=#{key,jdbcType=VARCHAR}</if>
+  		<if test="showname!=null and showname!=''">and showname like concat('%',#{showname,jdbcType=VARCHAR},'%')</if>
+  		<if test="description!=null and description!=''">and description like concat('%',#{description,jdbcType=VARCHAR},'%')</if>
+  	</trim>
+  </select>
+  
+  <delete id="delete_more" parameterType="java.lang.Object">
+  	delete from khsysparam
+  	where `id` in
+  	<foreach item="id" index="index" collection="del_ids" open="(" separator="," close=")">
+  		#{id}
+  	</foreach>
+  </delete>
+</mapper>

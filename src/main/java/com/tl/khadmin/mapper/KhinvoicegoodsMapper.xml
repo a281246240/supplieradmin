@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tl.khadmin.mapper.KhinvoicegoodsMapper">
+  <resultMap id="InvoiceGoodsMap" type="com.tl.khadmin.bean.Khinvoicegoods">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="ggxh" jdbcType="VARCHAR" property="ggxh" />
+    <result column="goodsid" jdbcType="VARCHAR" property="goodsid" />
+    <result column="qyspbm" jdbcType="VARCHAR" property="qyspbm" />
+    <result column="dw" jdbcType="VARCHAR" property="dw" />
+    <result column="spmc" jdbcType="VARCHAR" property="spmc" />
+    <result column="dj" jdbcType="DOUBLE" property="dj" />
+    <result column="lslbz" jdbcType="VARCHAR" property="lslbz" />
+    <result column="slv" jdbcType="DOUBLE" property="slv" />
+    <result column="spbm" jdbcType="VARCHAR" property="spbm" />
+    <result column="spfl" jdbcType="VARCHAR" property="spfl" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    id, ggxh, goodsid, qyspbm, dw, spmc, dj, lslbz, slv, spbm, spfl
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="InvoiceGoodsMap">
+    select 
+    <include refid="Base_Column_List" />
+    from khinvoicegoods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <!-- 查询当前产品数量 -->
+  <select id="selectCount" resultType="java.lang.Integer">
+  	select count(0) from khinvoicegoods
+  </select>
+  
+  <select id="selectBygoodsName" parameterType="java.lang.String" resultMap="InvoiceGoodsMap">
+  	select
+  	<include refid="Base_Column_List"></include>
+  	from khinvoicegoods
+    where spmc = #{spmc,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from khinvoicegoods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tl.khadmin.bean.Khinvoicegoods">
+    insert into khinvoicegoods (id, ggxh, goodsid, 
+      qyspbm, dw, spmc, dj, 
+      lslbz, slv, spbm, spfl
+      )
+    values (#{id,jdbcType=INTEGER}, #{ggxh,jdbcType=VARCHAR}, #{goodsid,jdbcType=VARCHAR}, 
+      #{qyspbm,jdbcType=VARCHAR}, #{dw,jdbcType=VARCHAR}, #{spmc,jdbcType=VARCHAR}, #{dj,jdbcType=DOUBLE}, 
+      #{lslbz,jdbcType=VARCHAR}, #{slv,jdbcType=DOUBLE}, #{spbm,jdbcType=VARCHAR}, #{spfl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tl.khadmin.bean.Khinvoicegoods">
+    insert into khinvoicegoods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="ggxh != null">
+        ggxh,
+      </if>
+      <if test="goodsid != null">
+        goodsid,
+      </if>
+      <if test="qyspbm != null">
+        qyspbm,
+      </if>
+      <if test="dw != null">
+        dw,
+      </if>
+      <if test="spmc != null">
+        spmc,
+      </if>
+      <if test="dj != null">
+        dj,
+      </if>
+      <if test="lslbz != null">
+        lslbz,
+      </if>
+      <if test="slv != null">
+        slv,
+      </if>
+      <if test="spbm != null">
+        spbm,
+      </if>
+      <if test="spfl != null">
+        spfl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ggxh != null">
+        #{ggxh,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsid != null">
+        #{goodsid,jdbcType=VARCHAR},
+      </if>
+      <if test="qyspbm != null">
+        #{qyspbm,jdbcType=VARCHAR},
+      </if>
+      <if test="dw != null">
+        #{dw,jdbcType=VARCHAR},
+      </if>
+      <if test="spmc != null">
+        #{spmc,jdbcType=VARCHAR},
+      </if>
+      <if test="dj != null">
+        #{dj,jdbcType=DOUBLE},
+      </if>
+      <if test="lslbz != null">
+        #{lslbz,jdbcType=VARCHAR},
+      </if>
+      <if test="slv != null">
+        #{slv,jdbcType=DOUBLE},
+      </if>
+      <if test="spbm != null">
+        #{spbm,jdbcType=VARCHAR},
+      </if>
+      <if test="spfl != null">
+        #{spfl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tl.khadmin.bean.Khinvoicegoods">
+    update khinvoicegoods
+    <set>
+      <if test="ggxh != null">
+        ggxh = #{ggxh,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsid != null">
+        goodsid = #{goodsid,jdbcType=VARCHAR},
+      </if>
+      <if test="qyspbm != null">
+        qyspbm = #{qyspbm,jdbcType=VARCHAR},
+      </if>
+      <if test="dw != null">
+        dw = #{dw,jdbcType=VARCHAR},
+      </if>
+      <if test="spmc != null">
+        spmc = #{spmc,jdbcType=VARCHAR},
+      </if>
+      <if test="dj != null">
+        dj = #{dj,jdbcType=DOUBLE},
+      </if>
+      <if test="lslbz != null">
+        lslbz = #{lslbz,jdbcType=VARCHAR},
+      </if>
+      <if test="slv != null">
+        slv = #{slv,jdbcType=DOUBLE},
+      </if>
+      <if test="spbm != null">
+        spbm = #{spbm,jdbcType=VARCHAR},
+      </if>
+      <if test="spfl != null">
+        spfl = #{spfl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tl.khadmin.bean.Khinvoicegoods">
+    update khinvoicegoods
+    set ggxh = #{ggxh,jdbcType=VARCHAR},
+      goodsid = #{goodsid,jdbcType=VARCHAR},
+      qyspbm = #{qyspbm,jdbcType=VARCHAR},
+      dw = #{dw,jdbcType=VARCHAR},
+      spmc = #{spmc,jdbcType=VARCHAR},
+      dj = #{dj,jdbcType=DOUBLE},
+      lslbz = #{lslbz,jdbcType=VARCHAR},
+      slv = #{slv,jdbcType=DOUBLE},
+      spbm = #{spbm,jdbcType=VARCHAR},
+      spfl = #{spfl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  
+</mapper>

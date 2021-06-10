@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tl.khadmin.mapper.StaffoperationMapper">
+  <resultMap id="BaseResultMap" type="com.tl.khadmin.bean.Staffoperation">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="value" jdbcType="INTEGER" property="value" />
+    <result column="parentid" jdbcType="INTEGER" property="parentid" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="ispage" jdbcType="INTEGER" property="ispage" />
+    <result column="uri" jdbcType="VARCHAR" property="uri" />
+    <result column="parameter" jdbcType="VARCHAR" property="parameter" />
+    <result column="classname" jdbcType="VARCHAR" property="classname" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, value, parentid, type, ispage, uri, parameter,classname , description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from khstaffoperation
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from khstaffoperation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.tl.khadmin.bean.Staffoperation">
+    insert into khstaffoperation (id, name, value, parentid, type, ispage, uri, parameter, classname, description)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{value,jdbcType=INTEGER}, #{parentid,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
+    		#{ispage,jdbcType=INTEGER}, #{uri,jdbcType=VARCHAR}, #{parameter,jdbcType=VARCHAR}, #{classname,jdbcType=VARCHAR},#{description,jdbcType=VARCHAR})
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.tl.khadmin.bean.Staffoperation">
+    insert into khstaffoperation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="value != null">
+        value,
+      </if>
+      <if test="parentid != null">
+        parentid,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="ispage != null">
+        ispage,
+      </if>
+      <if test="uri != null">
+        uri,
+      </if>
+      <if test="parameter != null">
+        parameter,
+      </if>
+      <if test="classname != null">
+        classname,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null">
+        #{value,jdbcType=INTEGER},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="ispage != null">
+        #{ispage,jdbcType=INTEGER},
+      </if>
+      <if test="uri != null">
+        #{uri,jdbcType=VARCHAR},
+      </if>
+      <if test="parameter != null">
+        #{parameter,jdbcType=VARCHAR},
+      </if>
+      <if test="classname != null">
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tl.khadmin.bean.Staffoperation">
+    update khstaffoperation
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null">
+        value = #{value,jdbcType=INTEGER},
+      </if>
+      <if test="parentid != null">
+        parentid = #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="ispage != null">
+        ispage = #{ispage,jdbcType=INTEGER},
+      </if>
+      <if test="uri != null">
+        uri = #{uri,jdbcType=VARCHAR},
+      </if>
+      <if test="parameter != null">
+        parameter = #{parameter,jdbcType=VARCHAR},
+      </if>
+      <if test="classname != null">
+        classname = #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tl.khadmin.bean.Staffoperation">
+    update khstaffoperation
+    set name = #{name,jdbcType=VARCHAR},
+      value = #{value,jdbcType=INTEGER},
+      parentid = #{parentid,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      ispage = #{ispage,jdbcType=INTEGER},
+      uri = #{uri,jdbcType=VARCHAR},
+      parameter = #{parameter,jdbcType=VARCHAR},
+      classname = #{classname,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="getStaffoperationlist" parameterType="Map" resultType="com.tl.khadmin.bean.Staffoperation">
+  	select * from khstaffoperation
+  	<trim prefix="where" prefixOverrides="and|or">
+  		<if test="id!=null">and `id`=#{id}</if>
+  		<if test="name!=null and name!=''">and name like concat('%',#{name},'%')</if>
+  		<if test="value!=null">and value=#{value}</if>
+  		<if test="parentid!=null">and parentid=#{parentid}</if>
+  		<if test="type!=null">and `type`=#{type}</if>
+  		<if test="ispage!=null">and `ispage`=#{ispage}</if>
+  		<if test="uri!=null and uri!=''">and `uri`like concat('%',#{uri},'%')</if>
+  		<if test="parameter!=null and parameter!=''">and `parameter`like concat('%',#{parameter},'%')</if>
+  		<if test="classname!=null and classname!=''">and `classname`like concat('%',#{classname},'%')</if>
+  	</trim>
+  </select>
+  
+  <select id="selectStaffoperationByPage" parameterType="Map" resultMap="BaseResultMap">
+		select * from khstaffoperation 
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="name!=null and name!=''">
+				and name LIKE CONCAT(CONCAT('%',#{name,jdbcType=VARCHAR}),'%')
+			</if> 
+			<if test="value!=null">and value=#{value}</if>
+	  		<if test="type!=null">and `type`=#{type}</if>
+	  		<if test="ispage!=null">and `ispage`=#{ispage}</if>
+		</trim>
+  </select>
+  
+  <select id="getTwoMenuByRolevalue" parameterType="Map" resultType="com.tl.khadmin.bean.Staffoperation">
+  	<!-- select a.* from khstaffoperation a 
+  	left join khstaffroleoperation b on a.`id`=b.`optvalue`
+  	<trim prefix="where" prefixOverrides="and|or">
+  		<if test="id!=null">a.`id`=#{id}</if>
+  		<if test="rolevalue!=null">and b.`rolevalue`=#{rolevalue}</if>
+  		<if test="type!=null">and a.`type`=#{type}</if>
+  		<if test="optvalue!=null">and b.`optvalue`&amp;#{optvalue}=#{optvalue}</if>
+  		<if test="parentid!=null">and a.`parentid`=#{parentid}</if>
+  	</trim> -->
+  	select <include refid="Base_Column_List" /> from khstaffoperation 
+  	where id in(select distinct optvalue from khstaffroleoperation where rolevalue=#{rolevalue});
+  </select>
+  <select id="getOneMenuByRolevalue" parameterType="Map" resultType="com.tl.khadmin.bean.Staffoperation">
+  	select <include refid="Base_Column_List" /> from khstaffoperation 
+  	<trim prefix="where" prefixOverrides="and|or">
+  		<if test="id!=null">id = #{id}</if>
+  		<if test="type!=null">and type =#{type}</if>
+  	</trim>;
+  </select>
+  
+  <select id="getChoosedOptList" parameterType="Map" resultType="com.tl.khadmin.bean.Staffoperation">
+		<!-- select * from khstaffoperation where id in(select moduleid from khstaffroleoperation where optvalue&amp;15=15 and rolevalue=#{rolevalue})
+		union
+		select * from khstaffoperation where parentid in(select moduleid from khstaffroleoperation where optvalue&amp;15=15 and rolevalue=#{rolevalue})
+		union
+		select * from khstaffoperation where parentid in(select moduleid from khstaffroleoperation where optvalue&amp;1=1 and rolevalue=#{rolevalue}) and `value`=1
+		union
+		select * from khstaffoperation where parentid in(select moduleid from khstaffroleoperation where optvalue&amp;2=2 and rolevalue=#{rolevalue}) and `value`=2
+		union
+		select * from khstaffoperation where parentid in(select moduleid from khstaffroleoperation where optvalue&amp;4=4 and rolevalue=#{rolevalue}) and `value`=4
+		union
+		select * from khstaffoperation where parentid in(select moduleid from khstaffroleoperation where optvalue&amp;8=8 and rolevalue=#{rolevalue}) and `value`=8 -->
+  		select * from khstaffoperation where id in(select moduleid from khstaffroleoperation where rolevalue=#{rolevalue});
+  </select>
+  
+  <select id="selectStaffoperationByName" parameterType="Map" resultType="java.lang.Integer">
+		select count(0) from khstaffoperation where name=#{name}
+  </select>	
+  
+  <delete id="deleteByIds" parameterType="java.util.List">
+	 delete from khstaffoperation where `id` in
+	 <foreach item="id" index="index" collection="array" open="(" separator="," close=")">
+	 	#{id}
+	 </foreach>
+  </delete>
+  
+  <delete id="deleteByParentids" parameterType="java.util.List">
+	 delete from khstaffoperation where `parentid` in
+	 <foreach item="parentid" index="index" collection="array" open="(" separator="," close=")">
+	 	#{parentid}
+	 </foreach>
+  </delete>
+  
+  <select id="checkuriPrivilege" parameterType="Map" resultType="java.lang.Integer">
+  	 select count(0) from khstaffoperation where `uri`=#{uri} and `type`=4 and `value`=#{value};
+  </select>
+</mapper>

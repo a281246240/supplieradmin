@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tl.khadmin.mapper.DistrictMapper">
+	<resultMap id="BaseResultMap" type="com.tl.khadmin.bean.District">
+		<result column="id" property="id" jdbcType="INTEGER" />
+		<result column="pid" property="pid" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="mergername" property="mergername" jdbcType="VARCHAR" />
+		<result column="shortname" property="shortname" jdbcType="VARCHAR" />
+		<result column="mergershortname" property="mergershortname"
+			jdbcType="VARCHAR" />
+		<result column="leveltype" property="leveltype" jdbcType="INTEGER" />
+		<result column="citycode" property="citycode" jdbcType="VARCHAR" />
+		<result column="zipcode" property="zipcode" jdbcType="VARCHAR" />
+		<result column="pinyin" property="pinyin" jdbcType="VARCHAR" />
+		<result column="jianpin" property="jianpin" jdbcType="VARCHAR" />
+		<result column="firstchar" property="firstchar" jdbcType="VARCHAR" />
+		<result column="lng" property="lng" jdbcType="REAL" />
+		<result column="lat" property="lat" jdbcType="REAL" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="prefixcarno" property="prefixcarno" jdbcType="VARCHAR" />
+
+	</resultMap>
+	<insert id="insert" parameterType="com.tl.khadmin.bean.District">
+		insert into khdistrict (id, pid, name,
+		mergername, shortname, mergershortname,
+		leveltype, citycode, zipcode,
+		pinyin, jianpin, firstchar,
+		lng, lat, remark,prefixcarno)
+		values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER},
+		#{name,jdbcType=VARCHAR},
+		#{mergername,jdbcType=VARCHAR}, #{shortname,jdbcType=VARCHAR}, #{mergershortname,jdbcType=VARCHAR},
+		#{leveltype,jdbcType=INTEGER}, #{citycode,jdbcType=VARCHAR},
+		#{zipcode,jdbcType=VARCHAR},
+		#{pinyin,jdbcType=VARCHAR}, #{jianpin,jdbcType=VARCHAR}, #{firstchar,jdbcType=VARCHAR},
+		#{lng,jdbcType=REAL}, #{lat,jdbcType=REAL},
+		#{remark,jdbcType=VARCHAR}, #{prefixcarno,jdbcType=VARCHAR})
+	</insert>
+	<select id="selectAllProvince" resultMap="BaseResultMap">
+		select
+		id,shortname name
+		from khdistrict
+		where leveltype=1
+	</select>
+	<select id="selectCityByPid" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		id,shortname name
+		from khdistrict
+		where pid = #{pid,jdbcType=INTEGER} and leveltype=2
+	</select>
+	<select id="selectDistrictByCid" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		id,shortname name
+		from khdistrict
+		where pid = #{cid,jdbcType=INTEGER} and leveltype=3
+	</select>
+	<select id="queryPrefixcarno" resultType="String" parameterType="java.lang.Integer">
+		select
+		prefixcarno
+		from khdistrict
+		where id = #{cityId,jdbcType=INTEGER} and leveltype=2
+	</select>
+	<select id="queryCitycode" resultType="String" parameterType="java.lang.Integer">
+		select
+		citycode
+		from khdistrict
+		where id = #{cityId,jdbcType=INTEGER} and leveltype=2
+	</select>
+
+	<select id="queryById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		*
+		from khdistrict
+		where id = #{cityId,jdbcType=INTEGER}
+	</select>
+
+	<select id="queryNameById" resultType="String" parameterType="java.lang.Integer">
+		select name
+		from khdistrict
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+</mapper>

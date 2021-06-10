@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tl.khadmin.mapper.ShopOrderProductMapper">
+  <resultMap id="BaseResultMap" type="com.tl.khadmin.bean.ShopOrderProduct">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="orderid" jdbcType="INTEGER" property="orderid" />
+    <result column="productid" jdbcType="INTEGER" property="productid" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+    <result column="price" jdbcType="REAL" property="price" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, orderid, productid, num, price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from khshoporderproduct
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from khshoporderproduct
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tl.khadmin.bean.ShopOrderProduct">
+    insert into khshoporderproduct (id, orderid, productid, 
+      num, price)
+    values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER}, #{productid,jdbcType=INTEGER}, 
+      #{num,jdbcType=INTEGER}, #{price,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tl.khadmin.bean.ShopOrderProduct">
+    insert into khshoporderproduct
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tl.khadmin.bean.ShopOrderProduct">
+    update khshoporderproduct
+    <set>
+      <if test="orderid != null">
+        orderid = #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null">
+        productid = #{productid,jdbcType=INTEGER},
+      </if>
+      <if test="num != null">
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=REAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tl.khadmin.bean.ShopOrderProduct">
+    update khshoporderproduct
+    set orderid = #{orderid,jdbcType=INTEGER},
+      productid = #{productid,jdbcType=INTEGER},
+      num = #{num,jdbcType=INTEGER},
+      price = #{price,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectOrderProductByPage" parameterType="Map" resultType="Map">
+		select shop.*,product.code,product.name,product.brandname,product.originalprice 
+		from khshoporderproduct shop left join khshopproduct product on product.id=shop.productid
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="orderid!=null">
+				and shop.orderid = #{orderid,jdbcType=INTEGER}
+			</if> 
+		</trim>
+  </select>
+  <select id="selectOrderProductByOrderId" parameterType="java.lang.Integer" resultType="Map">
+		select shop.*,product.code,product.name,product.brandname,product.originalprice 
+		from khshoporderproduct shop left join khshopproduct product on product.id=shop.productid
+		where shop.orderid = #{orderid,jdbcType=INTEGER}
+  </select>
+</mapper>

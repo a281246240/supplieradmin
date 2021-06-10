@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tl.khadmin.mapper.StaffroleoperationMapper">
+  <resultMap id="BaseResultMap" type="com.tl.khadmin.bean.Staffroleoperation">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="rolevalue" jdbcType="INTEGER" property="rolevalue" />
+    <result column="moduleid" jdbcType="INTEGER" property="moduleid" />
+    <result column="optvalue" jdbcType="INTEGER" property="optvalue" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="lastupdatetime" jdbcType="TIMESTAMP" property="lastupdatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, rolevalue, moduleid, optvalue, createtime, lastupdatetime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from khstaffroleoperation
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from khstaffroleoperation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tl.khadmin.bean.Staffroleoperation">
+    insert into khstaffroleoperation (id, rolevalue, moduleid, 
+      optvalue, createtime, lastupdatetime
+      )
+    values (#{id,jdbcType=INTEGER}, #{rolevalue,jdbcType=INTEGER}, #{moduleid,jdbcType=INTEGER}, 
+      #{optvalue,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{lastupdatetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="batchAdd" parameterType="java.util.List">  
+      insert into khstaffroleoperation (id, rolevalue, moduleid, 
+      optvalue, createtime, lastupdatetime) 
+      values  
+      <foreach collection="list" item="item" index="index" separator="," >  
+          (#{item.id,jdbcType=INTEGER}, #{item.rolevalue,jdbcType=INTEGER}, #{item.moduleid,jdbcType=INTEGER}, 
+	     #{item.optvalue,jdbcType=INTEGER}, #{item.createtime,jdbcType=TIMESTAMP}, #{item.lastupdatetime,jdbcType=TIMESTAMP}) 
+      </foreach>  
+  </insert>
+   
+  <insert id="insertSelective" parameterType="com.tl.khadmin.bean.Staffroleoperation">
+    insert into khstaffroleoperation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="rolevalue != null">
+        rolevalue,
+      </if>
+      <if test="moduleid != null">
+        moduleid,
+      </if>
+      <if test="optvalue != null">
+        optvalue,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="lastupdatetime != null">
+        lastupdatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="rolevalue != null">
+        #{rolevalue,jdbcType=INTEGER},
+      </if>
+      <if test="moduleid != null">
+        #{moduleid,jdbcType=INTEGER},
+      </if>
+      <if test="optvalue != null">
+        #{optvalue,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdatetime != null">
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tl.khadmin.bean.Staffroleoperation">
+    update khstaffroleoperation
+    <set>
+      <if test="rolevalue != null">
+        rolevalue = #{rolevalue,jdbcType=INTEGER},
+      </if>
+      <if test="moduleid != null">
+        moduleid = #{moduleid,jdbcType=INTEGER},
+      </if>
+      <if test="optvalue != null">
+        optvalue = #{optvalue,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdatetime != null">
+        lastupdatetime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tl.khadmin.bean.Staffroleoperation">
+    update khstaffroleoperation
+    set rolevalue = #{rolevalue,jdbcType=INTEGER},
+      moduleid = #{moduleid,jdbcType=INTEGER},
+      optvalue = #{optvalue,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      lastupdatetime = #{lastupdatetime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getStaffroleoperationlist" parameterType="Map" resultType="com.tl.khadmin.bean.Staffroleoperation">
+  	select * from khstaffroleoperation
+  	<trim prefix="where" prefixOverrides="and|or">
+  		<if test="rolevalue!=null">and `rolevalue`=#{rolevalue}</if>
+  		<if test="moduleid!=null">and `moduleid`=#{moduleid}</if>
+  		<if test="optvalue!=null">and `optvalue`&amp;#{optvalue}=#{optvalue}</if>
+  	</trim>
+  </select>
+  <select id="checkRolePrivilege" parameterType="Map" resultType="java.lang.Integer">
+  	<!-- select count(0) from khstaffroleoperation
+  	where optvalue &amp;(select `value` from khstaffoperation where `uri`=#{uri} and `type`=4) = (select `value` from khstaffoperation where `uri`=#{uri} 
+  	and `type`=4) and `rolevalue`=#{rolevalue} and moduleid=(select parentid from khstaffoperation where `uri`=#{uri} and `type`=4); -->
+  	select count(0) from khstaffoperation where `uri`=#{uri} and `type`=4 and `value`=#{value}
+  	union all
+  	select count(0) from khstaffroleoperation where moduleid in (
+  	  select `id` from khstaffoperation where `uri`=#{uri} and `type`=4) and `rolevalue`=#{rolevalue}
+  </select>
+  <delete id="htdeleteByrolevalue" parameterType="java.lang.Integer">
+  	delete from khstaffroleoperation where `rolevalue`=#{rolevalue}
+  </delete>
+</mapper>

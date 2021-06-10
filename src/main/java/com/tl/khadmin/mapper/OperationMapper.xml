@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tl.khadmin.mapper.OperationMapper">
+  <resultMap id="BaseResultMap" type="com.tl.khadmin.bean.Operation">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="key" jdbcType="VARCHAR" property="key" />
+    <result column="param" jdbcType="VARCHAR" property="param" />
+    <result column="parentid" jdbcType="INTEGER" property="parentid" />
+    <result column="keyon" jdbcType="VARCHAR" property="keyon" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="ispage" jdbcType="INTEGER" property="ispage" />
+    <result column="menuid" jdbcType="INTEGER" property="menuid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, key, param, parentid, keyon, type, ispage, menuid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from khoperation
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from khoperation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tl.khadmin.bean.Operation">
+    insert into khoperation (id, name, key, 
+      param, parentid, keyon, 
+      type, ispage, menuid
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{key,jdbcType=VARCHAR}, 
+      #{param,jdbcType=VARCHAR}, #{parentid,jdbcType=INTEGER}, #{keyon,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{ispage,jdbcType=INTEGER}, #{menuid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tl.khadmin.bean.Operation">
+    insert into khoperation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="key != null">
+        key,
+      </if>
+      <if test="param != null">
+        param,
+      </if>
+      <if test="parentid != null">
+        parentid,
+      </if>
+      <if test="keyon != null">
+        keyon,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="ispage != null">
+        ispage,
+      </if>
+      <if test="menuid != null">
+        menuid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null">
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="param != null">
+        #{param,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="keyon != null">
+        #{keyon,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="ispage != null">
+        #{ispage,jdbcType=INTEGER},
+      </if>
+      <if test="menuid != null">
+        #{menuid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tl.khadmin.bean.Operation">
+    update khoperation
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null">
+        key = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="param != null">
+        param = #{param,jdbcType=VARCHAR},
+      </if>
+      <if test="parentid != null">
+        parentid = #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="keyon != null">
+        keyon = #{keyon,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="ispage != null">
+        ispage = #{ispage,jdbcType=INTEGER},
+      </if>
+      <if test="menuid != null">
+        menuid = #{menuid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tl.khadmin.bean.Operation">
+    update khoperation
+    set name = #{name,jdbcType=VARCHAR},
+      key = #{key,jdbcType=VARCHAR},
+      param = #{param,jdbcType=VARCHAR},
+      parentid = #{parentid,jdbcType=INTEGER},
+      keyon = #{keyon,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      ispage = #{ispage,jdbcType=INTEGER},
+      menuid = #{menuid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

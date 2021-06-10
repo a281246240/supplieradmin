@@ -1,0 +1,1112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tl.khadmin.mapper.OrderMapper">
+	<resultMap id="BaseResultMap" type="com.tl.khadmin.bean.Order">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="orderid" jdbcType="VARCHAR" property="orderid" />
+		<result column="sender" jdbcType="VARCHAR" property="sender" />
+		<result column="senderphone" jdbcType="VARCHAR" property="senderphone" />
+		<result column="sendercompany" jdbcType="VARCHAR" property="sendercompany" />
+		<result column="sendvipid" jdbcType="INTEGER" property="sendvipid" />
+		<result column="sendvipname" jdbcType="VARCHAR" property="sendvipname" />
+		<result column="sendermobile" jdbcType="VARCHAR" property="sendermobile" />
+		<result column="senderaddress" jdbcType="VARCHAR" property="senderaddress" />
+		<result column="senderremark" jdbcType="VARCHAR" property="senderremark" />
+		<result column="receiver" jdbcType="VARCHAR" property="receiver" />
+		<result column="receiverphone" jdbcType="VARCHAR" property="receiverphone" />
+		<result column="receivercompany" jdbcType="VARCHAR" property="receivercompany" />
+		<result column="receivermobile" jdbcType="VARCHAR" property="receivermobile" />
+		<result column="receiveraddress" jdbcType="VARCHAR" property="receiveraddress" />
+		<result column="receiverremark" jdbcType="VARCHAR" property="receiverremark" />
+		<result column="senderproid" jdbcType="INTEGER" property="senderproid" />
+		<result column="sendercityid" jdbcType="INTEGER" property="sendercityid" />
+		<result column="senderdistrictid" jdbcType="INTEGER" property="senderdistrictid" />
+		<result column="sendertownid" jdbcType="INTEGER" property="sendertownid" />
+		<result column="senderpcdt" jdbcType="VARCHAR" property="senderpcdt" />
+		<result column="receiverproid" jdbcType="INTEGER" property="receiverproid" />
+		<result column="receivercityid" jdbcType="INTEGER" property="receivercityid" />
+		<result column="receiverdistrictid" jdbcType="INTEGER" property="receiverdistrictid" />
+		<result column="receiverpcdt" jdbcType="VARCHAR" property="receiverpcdt" />
+		<result column="deliverytype" jdbcType="INTEGER" property="deliverytype" />
+		<result column="pickupgoodstime" jdbcType="TIMESTAMP" property="pickupgoodstime" />
+		<result column="orgid" jdbcType="INTEGER" property="orgid" />
+		<result column="orgname" jdbcType="VARCHAR" property="orgname" />
+		<result column="orgaddress" jdbcType="VARCHAR" property="orgaddress" />
+		<result column="headid" jdbcType="INTEGER" property="headid" />
+		<result column="headname" jdbcType="VARCHAR" property="headname" />
+		<result column="destid" jdbcType="INTEGER" property="destid" />
+		<result column="destname" jdbcType="VARCHAR" property="destname" />
+		<result column="receiptno" jdbcType="VARCHAR" property="receiptno" />
+		<result column="receiptnum" jdbcType="INTEGER" property="receiptnum" />
+		<result column="goodsno" jdbcType="VARCHAR" property="goodsno" />
+		<result column="goodsname" jdbcType="VARCHAR" property="goodsname" />
+		<result column="goodsnum" jdbcType="INTEGER" property="goodsnum" />
+		<result column="weight" jdbcType="REAL" property="weight" />
+		<result column="volume" jdbcType="REAL" property="volume" />
+		<result column="goodsnummod" jdbcType="INTEGER" property="goodsnummod" />
+		<result column="weightmod" jdbcType="REAL" property="weightmod" />
+		<result column="volumemod" jdbcType="REAL" property="volumemod" />
+		<result column="goodsvalue" jdbcType="REAL" property="goodsvalue" />
+		<result column="premiumrate" jdbcType="REAL" property="premiumrate" />
+		<result column="goodsclassifyid" jdbcType="INTEGER" property="goodsclassifyid" />
+		<result column="goodsclassifyname" jdbcType="VARCHAR" property="goodsclassifyname" />
+		<result column="goodscategoryid" jdbcType="INTEGER" property="goodscategoryid" />
+		<result column="goodscategoryname" jdbcType="VARCHAR" property="goodscategoryname" />
+		<result column="packtype" jdbcType="INTEGER" property="packtype" />
+		<result column="agencyfund" jdbcType="REAL" property="agencyfund" />
+		<result column="agencyfundrate" jdbcType="REAL" property="agencyfundrate" />
+		<result column="agencyfundfee" jdbcType="REAL" property="agencyfundfee" />
+		<result column="transportway" jdbcType="INTEGER" property="transportway" />
+		<result column="paytype" jdbcType="INTEGER" property="paytype" />
+		<result column="ifnotifydispatch" jdbcType="INTEGER" property="ifnotifydispatch" />
+		<result column="dispatchtype" jdbcType="INTEGER" property="dispatchtype" />
+		<result column="settletype" jdbcType="INTEGER" property="settletype" />
+		<result column="freightfee" jdbcType="REAL" property="freightfee" />
+		<result column="pickupfee" jdbcType="REAL" property="pickupfee" />
+		<result column="securefee" jdbcType="REAL" property="securefee" />
+		<result column="deliveryfee" jdbcType="REAL" property="deliveryfee" />
+		<result column="upstairsfee" jdbcType="REAL" property="upstairsfee" />
+		<result column="labellingfee" jdbcType="REAL" property="labellingfee" />
+		<result column="premiumfee" jdbcType="REAL" property="premiumfee" />
+		<result column="freightpoundage" jdbcType="REAL" property="freightpoundage" />
+		<result column="freightrate" jdbcType="REAL" property="freightrate" />
+		<result column="freightcollectfee" jdbcType="REAL" property="freightcollectfee" />
+		<result column="sendfee" jdbcType="REAL" property="sendfee" />
+		<result column="userid" jdbcType="INTEGER" property="userid" />
+		<result column="username" jdbcType="VARCHAR" property="username" />
+		<result column="state" property="state" javaType="com.tl.khadmin.enums.OrderStateEnum" typeHandler="com.tl.khadmin.util.EnumTypeHandler" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+		<result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+		<result column="creditmonth" jdbcType="INTEGER" property="creditmonth" />
+		<result column="ordersn" jdbcType="VARCHAR" property="ordersn" />
+		<result column="orgphone" jdbcType="VARCHAR" property="orgphone" />
+		<result column="picker" jdbcType="VARCHAR" property="picker" />
+		<result column="pickerphone" jdbcType="VARCHAR" property="pickerphone" />
+		<result column="orderdeposit" jdbcType="REAL" property="orderdeposit" />
+		<result column="receivertownid" jdbcType="INTEGER" property="receivertownid" />
+		<result column="logisticsnumber" jdbcType="VARCHAR" property="logisticsnumber" />
+		<result column="invoice" jdbcType="INTEGER" property="invoice" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, orderid, sender, senderphone, sendercompany, sendvipid, sendvipname,
+		sendermobile,
+		senderaddress, senderremark, receiver, receiverphone, receivercompany,
+		receivermobile,
+		receiveraddress, receiverremark, senderproid, sendercityid, senderdistrictid,
+		sendertownid,
+		senderpcdt, receiverproid, receivercityid, receiverdistrictid, receiverpcdt,
+		deliverytype,
+		pickupgoodstime, orgid, orgname, orgaddress, headid, headname, destid, destname,
+		receiptno, receiptnum, goodsno, goodsname, goodsnum, weight, volume,
+		goodsnummod,
+		weightmod, volumemod, goodsvalue, premiumrate, goodsclassifyid,
+		goodsclassifyname,
+		goodscategoryid, goodscategoryname, packtype, agencyfund, agencyfundrate,
+		agencyfundfee,
+		transportway, paytype, ifnotifydispatch, dispatchtype, settletype, freightfee,
+		pickupfee,
+		securefee, deliveryfee, upstairsfee, freightpoundage, freightrate,
+		freightcollectfee,
+		sendfee, userid, username, state, remark, createtime,
+		creditmonth,premiumfee,labellingfee,ordersn,orgphone,picker,pickerphone,orderdeposit,receivertownid,
+		logisticsnumber,invoice
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from khorder
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from khorder
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.tl.khadmin.bean.Order">
+		insert into khorder (id, orderid, sender,
+		senderphone, sendercompany, sendvipid,
+		sendvipname, sendermobile, senderaddress,
+		senderremark, receiver, receiverphone,
+		receivercompany, receivermobile, receiveraddress,
+		receiverremark, senderproid, sendercityid,
+		senderdistrictid, sendertownid, senderpcdt,
+		receiverproid, receivercityid, receiverdistrictid,
+		receiverpcdt, deliverytype, pickupgoodstime,
+		orgid, orgname, orgaddress,
+		headid, headname, destid,
+		destname, receiptno, receiptnum,
+		goodsno, goodsname, goodsnum,
+		weight, volume, goodsnummod,
+		weightmod, volumemod, goodsvalue,
+		premiumrate, goodsclassifyid, goodsclassifyname,
+		goodscategoryid, goodscategoryname, packtype,
+		agencyfund, agencyfundrate, agencyfundfee,
+		transportway, paytype, ifnotifydispatch,
+		dispatchtype, settletype, freightfee,
+		pickupfee, securefee, deliveryfee,
+		upstairsfee, freightpoundage, freightrate,
+		freightcollectfee, sendfee, userid,
+		username, state, remark,
+		createtime,  creditmonth,labellingfee,premiumfee,ordersn,orgphone,picker,
+		pickerphone,orderdeposit,receivertownid,logisticsnumber,invoice
+		)
+		values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=VARCHAR},
+		#{sender,jdbcType=VARCHAR},
+		#{senderphone,jdbcType=VARCHAR}, #{sendercompany,jdbcType=VARCHAR}, #{sendvipid,jdbcType=INTEGER},
+		#{sendvipname,jdbcType=VARCHAR}, #{sendermobile,jdbcType=VARCHAR},
+		#{senderaddress,jdbcType=VARCHAR},
+		#{senderremark,jdbcType=VARCHAR}, #{receiver,jdbcType=VARCHAR}, #{receiverphone,jdbcType=VARCHAR},
+		#{receivercompany,jdbcType=VARCHAR},
+		#{receivermobile,jdbcType=VARCHAR},
+		#{receiveraddress,jdbcType=VARCHAR},
+		#{receiverremark,jdbcType=VARCHAR}, #{senderproid,jdbcType=INTEGER},
+		#{sendercityid,jdbcType=INTEGER},
+		#{senderdistrictid,jdbcType=INTEGER},
+		#{sendertownid,jdbcType=INTEGER}, #{senderpcdt,jdbcType=VARCHAR},
+		#{receiverproid,jdbcType=INTEGER}, #{receivercityid,jdbcType=INTEGER},
+		#{receiverdistrictid,jdbcType=INTEGER},
+		#{receiverpcdt,jdbcType=VARCHAR}, #{deliverytype,jdbcType=INTEGER},
+		#{pickupgoodstime,jdbcType=TIMESTAMP},
+		#{orgid,jdbcType=INTEGER}, #{orgname,jdbcType=VARCHAR}, #{orgaddress,jdbcType=VARCHAR},
+		#{headid,jdbcType=INTEGER}, #{headname,jdbcType=VARCHAR},
+		#{destid,jdbcType=INTEGER},
+		#{destname,jdbcType=VARCHAR}, #{receiptno,jdbcType=VARCHAR}, #{receiptnum,jdbcType=INTEGER},
+		#{goodsno,jdbcType=VARCHAR}, #{goodsname,jdbcType=VARCHAR},
+		#{goodsnum,jdbcType=INTEGER},
+		#{weight,jdbcType=REAL}, #{volume,jdbcType=REAL}, #{goodsnummod,jdbcType=INTEGER},
+		#{weightmod,jdbcType=REAL}, #{volumemod,jdbcType=REAL},
+		#{goodsvalue,jdbcType=REAL},
+		#{premiumrate,jdbcType=REAL}, #{goodsclassifyid,jdbcType=INTEGER},
+		#{goodsclassifyname,jdbcType=VARCHAR},
+		#{goodscategoryid,jdbcType=INTEGER},
+		#{goodscategoryname,jdbcType=VARCHAR}, #{packtype,jdbcType=INTEGER},
+		#{agencyfund,jdbcType=REAL}, #{agencyfundrate,jdbcType=REAL},
+		#{agencyfundfee,jdbcType=REAL},
+		#{transportway,jdbcType=INTEGER}, #{paytype,jdbcType=INTEGER}, #{ifnotifydispatch,jdbcType=INTEGER},
+		#{dispatchtype,jdbcType=INTEGER}, #{settletype,jdbcType=INTEGER},
+		#{freightfee,jdbcType=REAL},
+		#{pickupfee,jdbcType=REAL}, #{securefee,jdbcType=REAL}, #{deliveryfee,jdbcType=REAL},
+		#{upstairsfee,jdbcType=REAL}, #{freightpoundage,jdbcType=REAL},
+		#{freightrate,jdbcType=REAL},
+		#{freightcollectfee,jdbcType=REAL}, #{sendfee,jdbcType=REAL}, #{userid,jdbcType=INTEGER},
+		#{username,jdbcType=VARCHAR}, 
+		#{state,jdbcType=INTEGER,typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler},
+		#{remark,jdbcType=VARCHAR},
+		#{createtime,jdbcType=TIMESTAMP}, #{creditmonth,jdbcType=INTEGER},
+		#{labellingfee,jdbcType=REAL},#{premiumfee,jdbcType=REAL},#{ordersn,jdbcType=VARCHAR},
+		#{orgphone,jdbcType=VARCHAR},#{picker,jdbcType=VARCHAR},
+		#{pickerphone,jdbcType=VARCHAR},#{orderdeposit,jdbcType=REAL},#{receivertownid,jdbcType=INTEGER},
+		#{logisticsnumber,jdbcType=VARCHAR},#{invoice,jdbcType=INTEGER}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.tl.khadmin.bean.Order">
+		insert into khorder
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="orderid != null">
+				orderid,
+			</if>
+			<if test="sender != null">
+				sender,
+			</if>
+			<if test="senderphone != null">
+				senderphone,
+			</if>
+			<if test="sendercompany != null">
+				sendercompany,
+			</if>
+			<if test="sendvipid != null">
+				sendvipid,
+			</if>
+			<if test="sendvipname != null">
+				sendvipname,
+			</if>
+			<if test="sendermobile != null">
+				sendermobile,
+			</if>
+			<if test="senderaddress != null">
+				senderaddress,
+			</if>
+			<if test="senderremark != null">
+				senderremark,
+			</if>
+			<if test="receiver != null">
+				receiver,
+			</if>
+			<if test="receiverphone != null">
+				receiverphone,
+			</if>
+			<if test="receivercompany != null">
+				receivercompany,
+			</if>
+			<if test="receivermobile != null">
+				receivermobile,
+			</if>
+			<if test="receiveraddress != null">
+				receiveraddress,
+			</if>
+			<if test="receiverremark != null">
+				receiverremark,
+			</if>
+			<if test="senderproid != null">
+				senderproid,
+			</if>
+			<if test="sendercityid != null">
+				sendercityid,
+			</if>
+			<if test="senderdistrictid != null">
+				senderdistrictid,
+			</if>
+			<if test="sendertownid != null">
+				sendertownid,
+			</if>
+			<if test="senderpcdt != null">
+				senderpcdt,
+			</if>
+			<if test="receiverproid != null">
+				receiverproid,
+			</if>
+			<if test="receivercityid != null">
+				receivercityid,
+			</if>
+			<if test="receiverdistrictid != null">
+				receiverdistrictid,
+			</if>
+			<if test="receiverpcdt != null">
+				receiverpcdt,
+			</if>
+			<if test="deliverytype != null">
+				deliverytype,
+			</if>
+			<if test="pickupgoodstime != null">
+				pickupgoodstime,
+			</if>
+			<if test="orgid != null">
+				orgid,
+			</if>
+			<if test="orgname != null">
+				orgname,
+			</if>
+			<if test="orgaddress != null">
+				orgaddress,
+			</if>
+			<if test="headid != null">
+				headid,
+			</if>
+			<if test="headname != null">
+				headname,
+			</if>
+			<if test="destid != null">
+				destid,
+			</if>
+			<if test="destname != null">
+				destname,
+			</if>
+			<if test="receiptno != null">
+				receiptno,
+			</if>
+			<if test="receiptnum != null">
+				receiptnum,
+			</if>
+			<if test="goodsno != null">
+				goodsno,
+			</if>
+			<if test="goodsname != null">
+				goodsname,
+			</if>
+			<if test="goodsnum != null">
+				goodsnum,
+			</if>
+			<if test="weight != null">
+				weight,
+			</if>
+			<if test="volume != null">
+				volume,
+			</if>
+			<if test="goodsnummod != null">
+				goodsnummod,
+			</if>
+			<if test="weightmod != null">
+				weightmod,
+			</if>
+			<if test="volumemod != null">
+				volumemod,
+			</if>
+			<if test="goodsvalue != null">
+				goodsvalue,
+			</if>
+			<if test="premiumrate != null">
+				premiumrate,
+			</if>
+			<if test="goodsclassifyid != null">
+				goodsclassifyid,
+			</if>
+			<if test="goodsclassifyname != null">
+				goodsclassifyname,
+			</if>
+			<if test="goodscategoryid != null">
+				goodscategoryid,
+			</if>
+			<if test="goodscategoryname != null">
+				goodscategoryname,
+			</if>
+			<if test="packtype != null">
+				packtype,
+			</if>
+			<if test="agencyfund != null">
+				agencyfund,
+			</if>
+			<if test="agencyfundrate != null">
+				agencyfundrate,
+			</if>
+			<if test="agencyfundfee != null">
+				agencyfundfee,
+			</if>
+			<if test="transportway != null">
+				transportway,
+			</if>
+			<if test="paytype != null">
+				paytype,
+			</if>
+			<if test="ifnotifydispatch != null">
+				ifnotifydispatch,
+			</if>
+			<if test="dispatchtype != null">
+				dispatchtype,
+			</if>
+			<if test="settletype != null">
+				settletype,
+			</if>
+			<if test="freightfee != null">
+				freightfee,
+			</if>
+			<if test="pickupfee != null">
+				pickupfee,
+			</if>
+			<if test="securefee != null">
+				securefee,
+			</if>
+			<if test="deliveryfee != null">
+				deliveryfee,
+			</if>
+			<if test="upstairsfee != null">
+				upstairsfee,
+			</if>
+			<if test="freightpoundage != null">
+				freightpoundage,
+			</if>
+			<if test="freightrate != null">
+				freightrate,
+			</if>
+			<if test="freightcollectfee != null">
+				freightcollectfee,
+			</if>
+			<if test="sendfee != null">
+				sendfee,
+			</if>
+			<if test="userid != null">
+				userid,
+			</if>
+			<if test="username != null">
+				username,
+			</if>
+			<if test="state != null">
+				state,
+			</if>
+			<if test="remark != null">
+				remark,
+			</if>
+			<if test="createtime != null">
+				createtime,
+			</if>
+			<if test="creditmonth != null">
+				creditmonth,
+			</if>
+			<if test="labellingfee != null">
+				labellingfee,
+			</if> 
+			<if test="premiumfee != null">
+				premiumfee,
+			</if>
+			<if test="ordersn != null">
+				ordersn,
+			</if>
+			<if test="orgphone != null">
+				orgphone,
+			</if>
+			<if test="picker != null">
+				picker,
+			</if>
+			<if test="pickerphone != null">
+				pickerphone,
+			</if>
+			<if test="orderdeposit != null">
+				orderdeposit,
+			</if>
+			<if test="receivertownid != null">
+				receivertownid,
+			</if>
+			<if test="logisticsnumber != null">
+				logisticsnumber,
+			</if>
+			<if test="invoice != null">
+				invoice,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="orderid != null">
+				#{orderid,jdbcType=VARCHAR},
+			</if>
+			<if test="sender != null">
+				#{sender,jdbcType=VARCHAR},
+			</if>
+			<if test="senderphone != null">
+				#{senderphone,jdbcType=VARCHAR},
+			</if>
+			<if test="sendercompany != null">
+				#{sendercompany,jdbcType=VARCHAR},
+			</if>
+			<if test="sendvipid != null">
+				#{sendvipid,jdbcType=INTEGER},
+			</if>
+			<if test="sendvipname != null">
+				#{sendvipname,jdbcType=VARCHAR},
+			</if>
+			<if test="sendermobile != null">
+				#{sendermobile,jdbcType=VARCHAR},
+			</if>
+			<if test="senderaddress != null">
+				#{senderaddress,jdbcType=VARCHAR},
+			</if>
+			<if test="senderremark != null">
+				#{senderremark,jdbcType=VARCHAR},
+			</if>
+			<if test="receiver != null">
+				#{receiver,jdbcType=VARCHAR},
+			</if>
+			<if test="receiverphone != null">
+				#{receiverphone,jdbcType=VARCHAR},
+			</if>
+			<if test="receivercompany != null">
+				#{receivercompany,jdbcType=VARCHAR},
+			</if>
+			<if test="receivermobile != null">
+				#{receivermobile,jdbcType=VARCHAR},
+			</if>
+			<if test="receiveraddress != null">
+				#{receiveraddress,jdbcType=VARCHAR},
+			</if>
+			<if test="receiverremark != null">
+				#{receiverremark,jdbcType=VARCHAR},
+			</if>
+			<if test="senderproid != null">
+				#{senderproid,jdbcType=INTEGER},
+			</if>
+			<if test="sendercityid != null">
+				#{sendercityid,jdbcType=INTEGER},
+			</if>
+			<if test="senderdistrictid != null">
+				#{senderdistrictid,jdbcType=INTEGER},
+			</if>
+			<if test="sendertownid != null">
+				#{sendertownid,jdbcType=INTEGER},
+			</if>
+			<if test="senderpcdt != null">
+				#{senderpcdt,jdbcType=VARCHAR},
+			</if>
+			<if test="receiverproid != null">
+				#{receiverproid,jdbcType=INTEGER},
+			</if>
+			<if test="receivercityid != null">
+				#{receivercityid,jdbcType=INTEGER},
+			</if>
+			<if test="receiverdistrictid != null">
+				#{receiverdistrictid,jdbcType=INTEGER},
+			</if>
+			<if test="receiverpcdt != null">
+				#{receiverpcdt,jdbcType=VARCHAR},
+			</if>
+			<if test="deliverytype != null">
+				#{deliverytype,jdbcType=INTEGER},
+			</if>
+			<if test="pickupgoodstime != null">
+				#{pickupgoodstime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="orgid != null">
+				#{orgid,jdbcType=INTEGER},
+			</if>
+			<if test="orgname != null">
+				#{orgname,jdbcType=VARCHAR},
+			</if>
+			<if test="orgaddress != null">
+				#{orgaddress,jdbcType=VARCHAR},
+			</if>
+			<if test="headid != null">
+				#{headid,jdbcType=INTEGER},
+			</if>
+			<if test="headname != null">
+				#{headname,jdbcType=VARCHAR},
+			</if>
+			<if test="destid != null">
+				#{destid,jdbcType=INTEGER},
+			</if>
+			<if test="destname != null">
+				#{destname,jdbcType=VARCHAR},
+			</if>
+			<if test="receiptno != null">
+				#{receiptno,jdbcType=VARCHAR},
+			</if>
+			<if test="receiptnum != null">
+				#{receiptnum,jdbcType=INTEGER},
+			</if>
+			<if test="goodsno != null">
+				#{goodsno,jdbcType=VARCHAR},
+			</if>
+			<if test="goodsname != null">
+				#{goodsname,jdbcType=VARCHAR},
+			</if>
+			<if test="goodsnum != null">
+				#{goodsnum,jdbcType=INTEGER},
+			</if>
+			<if test="weight != null">
+				#{weight,jdbcType=REAL},
+			</if>
+			<if test="volume != null">
+				#{volume,jdbcType=REAL},
+			</if>
+			<if test="goodsnummod != null">
+				#{goodsnummod,jdbcType=INTEGER},
+			</if>
+			<if test="weightmod != null">
+				#{weightmod,jdbcType=REAL},
+			</if>
+			<if test="volumemod != null">
+				#{volumemod,jdbcType=REAL},
+			</if>
+			<if test="goodsvalue != null">
+				#{goodsvalue,jdbcType=REAL},
+			</if>
+			<if test="premiumrate != null">
+				#{premiumrate,jdbcType=REAL},
+			</if>
+			<if test="goodsclassifyid != null">
+				#{goodsclassifyid,jdbcType=INTEGER},
+			</if>
+			<if test="goodsclassifyname != null">
+				#{goodsclassifyname,jdbcType=VARCHAR},
+			</if>
+			<if test="goodscategoryid != null">
+				#{goodscategoryid,jdbcType=INTEGER},
+			</if>
+			<if test="goodscategoryname != null">
+				#{goodscategoryname,jdbcType=VARCHAR},
+			</if>
+			<if test="packtype != null">
+				#{packtype,jdbcType=INTEGER},
+			</if>
+			<if test="agencyfund != null">
+				#{agencyfund,jdbcType=REAL},
+			</if>
+			<if test="agencyfundrate != null">
+				#{agencyfundrate,jdbcType=REAL},
+			</if>
+			<if test="agencyfundfee != null">
+				#{agencyfundfee,jdbcType=REAL},
+			</if>
+			<if test="transportway != null">
+				#{transportway,jdbcType=INTEGER},
+			</if>
+			<if test="paytype != null">
+				#{paytype,jdbcType=INTEGER},
+			</if>
+			<if test="ifnotifydispatch != null">
+				#{ifnotifydispatch,jdbcType=INTEGER},
+			</if>
+			<if test="dispatchtype != null">
+				#{dispatchtype,jdbcType=INTEGER},
+			</if>
+			<if test="settletype != null">
+				#{settletype,jdbcType=INTEGER},
+			</if>
+			<if test="freightfee != null">
+				#{freightfee,jdbcType=REAL},
+			</if>
+			<if test="pickupfee != null">
+				#{pickupfee,jdbcType=REAL},
+			</if>
+			<if test="securefee != null">
+				#{securefee,jdbcType=REAL},
+			</if>
+			<if test="deliveryfee != null">
+				#{deliveryfee,jdbcType=REAL},
+			</if>
+			<if test="upstairsfee != null">
+				#{upstairsfee,jdbcType=REAL},
+			</if>
+			<if test="freightpoundage != null">
+				#{freightpoundage,jdbcType=REAL},
+			</if>
+			<if test="freightrate != null">
+				#{freightrate,jdbcType=REAL},
+			</if>
+			<if test="freightcollectfee != null">
+				#{freightcollectfee,jdbcType=REAL},
+			</if>
+			<if test="sendfee != null">
+				#{sendfee,jdbcType=REAL},
+			</if>
+			<if test="userid != null">
+				#{userid,jdbcType=INTEGER},
+			</if>
+			<if test="username != null">
+				#{username,jdbcType=VARCHAR},
+			</if>
+			<if test="state != null">
+				#{state,jdbcType=INTEGER},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="creditmonth != null">
+				#{creditmonth,jdbcType=INTEGER},
+			</if>
+			<if test="labellingfee != null">
+				#{labellingfee,jdbcType=REAL},
+			</if>
+			<if test="premiumfee != null">
+				#{premiumfee,jdbcType=REAL},
+			</if>
+			<if test="ordersn != null">
+				#{ordersn,jdbcType=VARCHAR},
+			</if>
+			<if test="orgphone != null">
+				#{orgphone,jdbcType=VARCHAR},
+			</if>
+			<if test="picker != null">
+				#{picker,jdbcType=VARCHAR},
+			</if>
+			<if test="pickerphone != null">
+				#{pickerphone,jdbcType=VARCHAR},
+			</if>
+			<if test="orderdeposit != null">
+				#{orderdeposit,jdbcType=REAL},
+			</if>
+			<if test="receivertownid != null">
+				#{receivertownid,jdbcType=INTEGER},
+			</if>
+			<if test="logisticsnumber != null">
+				#{logisticsnumber,jdbcType=VARCHAR},
+			</if>
+			<if test="invoice != null">
+				#{invoice,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.tl.khadmin.bean.Order">
+		update khorder
+		<set>
+			<if test="orderid != null">
+				orderid = #{orderid,jdbcType=VARCHAR},
+			</if>
+			<if test="sender != null">
+				sender = #{sender,jdbcType=VARCHAR},
+			</if>
+			<if test="senderphone != null">
+				senderphone = #{senderphone,jdbcType=VARCHAR},
+			</if>
+			<if test="sendercompany != null">
+				sendercompany = #{sendercompany,jdbcType=VARCHAR},
+			</if>
+			<if test="sendvipid != null">
+				sendvipid = #{sendvipid,jdbcType=INTEGER},
+			</if>
+			<if test="sendvipname != null">
+				sendvipname = #{sendvipname,jdbcType=VARCHAR},
+			</if>
+			<if test="sendermobile != null">
+				sendermobile = #{sendermobile,jdbcType=VARCHAR},
+			</if>
+			<if test="senderaddress != null">
+				senderaddress = #{senderaddress,jdbcType=VARCHAR},
+			</if>
+			<if test="senderremark != null">
+				senderremark = #{senderremark,jdbcType=VARCHAR},
+			</if>
+			<if test="receiver != null">
+				receiver = #{receiver,jdbcType=VARCHAR},
+			</if>
+			<if test="receiverphone != null">
+				receiverphone = #{receiverphone,jdbcType=VARCHAR},
+			</if>
+			<if test="receivercompany != null">
+				receivercompany = #{receivercompany,jdbcType=VARCHAR},
+			</if>
+			<if test="receivermobile != null">
+				receivermobile = #{receivermobile,jdbcType=VARCHAR},
+			</if>
+			<if test="receiveraddress != null">
+				receiveraddress = #{receiveraddress,jdbcType=VARCHAR},
+			</if>
+			<if test="receiverremark != null">
+				receiverremark = #{receiverremark,jdbcType=VARCHAR},
+			</if>
+			<if test="senderproid != null">
+				senderproid = #{senderproid,jdbcType=INTEGER},
+			</if>
+			<if test="sendercityid != null">
+				sendercityid = #{sendercityid,jdbcType=INTEGER},
+			</if>
+			<if test="senderdistrictid != null">
+				senderdistrictid = #{senderdistrictid,jdbcType=INTEGER},
+			</if>
+			<if test="sendertownid != null">
+				sendertownid = #{sendertownid,jdbcType=INTEGER},
+			</if>
+			<if test="senderpcdt != null">
+				senderpcdt = #{senderpcdt,jdbcType=VARCHAR},
+			</if>
+			<if test="receiverproid != null">
+				receiverproid = #{receiverproid,jdbcType=INTEGER},
+			</if>
+			<if test="receivercityid != null">
+				receivercityid = #{receivercityid,jdbcType=INTEGER},
+			</if>
+			<if test="receiverdistrictid != null">
+				receiverdistrictid = #{receiverdistrictid,jdbcType=INTEGER},
+			</if>
+			<if test="receiverpcdt != null">
+				receiverpcdt = #{receiverpcdt,jdbcType=VARCHAR},
+			</if>
+			<if test="deliverytype != null">
+				deliverytype = #{deliverytype,jdbcType=INTEGER},
+			</if>
+			<if test="pickupgoodstime != null">
+				pickupgoodstime = #{pickupgoodstime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="orgid != null">
+				orgid = #{orgid,jdbcType=INTEGER},
+			</if>
+			<if test="orgname != null">
+				orgname = #{orgname,jdbcType=VARCHAR},
+			</if>
+			<if test="orgaddress != null">
+				orgaddress = #{orgaddress,jdbcType=VARCHAR},
+			</if>
+			<if test="headid != null">
+				headid = #{headid,jdbcType=INTEGER},
+			</if>
+			<if test="headname != null">
+				headname = #{headname,jdbcType=VARCHAR},
+			</if>
+			<if test="destid != null">
+				destid = #{destid,jdbcType=INTEGER},
+			</if>
+			<if test="destname != null">
+				destname = #{destname,jdbcType=VARCHAR},
+			</if>
+			<if test="receiptno != null">
+				receiptno = #{receiptno,jdbcType=VARCHAR},
+			</if>
+			<if test="receiptnum != null">
+				receiptnum = #{receiptnum,jdbcType=INTEGER},
+			</if>
+			<if test="goodsno != null">
+				goodsno = #{goodsno,jdbcType=VARCHAR},
+			</if>
+			<if test="goodsname != null">
+				goodsname = #{goodsname,jdbcType=VARCHAR},
+			</if>
+			<if test="goodsnum != null">
+				goodsnum = #{goodsnum,jdbcType=INTEGER},
+			</if>
+			<if test="weight != null">
+				weight = #{weight,jdbcType=REAL},
+			</if>
+			<if test="volume != null">
+				volume = #{volume,jdbcType=REAL},
+			</if>
+			<if test="goodsnummod != null">
+				goodsnummod = #{goodsnummod,jdbcType=INTEGER},
+			</if>
+			<if test="weightmod != null">
+				weightmod = #{weightmod,jdbcType=REAL},
+			</if>
+			<if test="volumemod != null">
+				volumemod = #{volumemod,jdbcType=REAL},
+			</if>
+			<if test="goodsvalue != null">
+				goodsvalue = #{goodsvalue,jdbcType=REAL},
+			</if>
+			<if test="premiumrate != null">
+				premiumrate = #{premiumrate,jdbcType=REAL},
+			</if>
+			<if test="goodsclassifyid != null">
+				goodsclassifyid = #{goodsclassifyid,jdbcType=INTEGER},
+			</if>
+			<if test="goodsclassifyname != null">
+				goodsclassifyname = #{goodsclassifyname,jdbcType=VARCHAR},
+			</if>
+			<if test="goodscategoryid != null">
+				goodscategoryid = #{goodscategoryid,jdbcType=INTEGER},
+			</if>
+			<if test="goodscategoryname != null">
+				goodscategoryname = #{goodscategoryname,jdbcType=VARCHAR},
+			</if>
+			<if test="packtype != null">
+				packtype = #{packtype,jdbcType=INTEGER},
+			</if>
+			<if test="agencyfund != null">
+				agencyfund = #{agencyfund,jdbcType=REAL},
+			</if>
+			<if test="agencyfundrate != null">
+				agencyfundrate = #{agencyfundrate,jdbcType=REAL},
+			</if>
+			<if test="agencyfundfee != null">
+				agencyfundfee = #{agencyfundfee,jdbcType=REAL},
+			</if>
+			<if test="transportway != null">
+				transportway = #{transportway,jdbcType=INTEGER},
+			</if>
+			<if test="paytype != null">
+				paytype = #{paytype,jdbcType=INTEGER},
+			</if>
+			<if test="ifnotifydispatch != null">
+				ifnotifydispatch = #{ifnotifydispatch,jdbcType=INTEGER},
+			</if>
+			<if test="dispatchtype != null">
+				dispatchtype = #{dispatchtype,jdbcType=INTEGER},
+			</if>
+			<if test="settletype != null">
+				settletype = #{settletype,jdbcType=INTEGER},
+			</if>
+			<if test="freightfee != null">
+				freightfee = #{freightfee,jdbcType=REAL},
+			</if>
+			<if test="pickupfee != null">
+				pickupfee = #{pickupfee,jdbcType=REAL},
+			</if>
+			<if test="securefee != null">
+				securefee = #{securefee,jdbcType=REAL},
+			</if>
+			<if test="deliveryfee != null">
+				deliveryfee = #{deliveryfee,jdbcType=REAL},
+			</if>
+			<if test="upstairsfee != null">
+				upstairsfee = #{upstairsfee,jdbcType=REAL},
+			</if>
+			<if test="freightpoundage != null">
+				freightpoundage = #{freightpoundage,jdbcType=REAL},
+			</if>
+			<if test="freightrate != null">
+				freightrate = #{freightrate,jdbcType=REAL},
+			</if>
+			<if test="freightcollectfee != null">
+				freightcollectfee = #{freightcollectfee,jdbcType=REAL},
+			</if>
+			<if test="sendfee != null">
+				sendfee = #{sendfee,jdbcType=REAL},
+			</if>
+			<if test="userid != null">
+				userid = #{userid,jdbcType=INTEGER},
+			</if>
+			<if test="username != null">
+				username = #{username,jdbcType=VARCHAR},
+			</if>
+			<if test="state != null">
+				state = #{state,jdbcType=INTEGER},
+			</if>
+			<if test="remark != null">
+				remark = #{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="createtime != null">
+				createtime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="creditmonth != null">
+				creditmonth = #{creditmonth,jdbcType=INTEGER},
+			</if>
+			<if test="labellingfee != null">
+				labellingfee = #{labellingfee,jdbcType=REAL},
+			</if>
+			<if test="premiumfee != null">
+				premiumfee = #{premiumfee,jdbcType=REAL},
+			</if> 
+			<if test="ordersn != null">
+				ordersn = #{ordersn,jdbcType=VARCHAR},
+			</if>
+			<if test="orgphone != null">
+				orgphone = #{orgphone,jdbcType=VARCHAR},
+			</if>
+			<if test="picker != null">
+				picker = #{picker,jdbcType=VARCHAR},
+			</if>
+			<if test="pickerphone != null">
+				pickerphone = #{pickerphone,jdbcType=VARCHAR},
+			</if>
+			<if test="orderdeposit != null">
+				orderdeposit = #{orderdeposit,jdbcType=REAL},
+			</if>
+			<if test="receivertownid != null">
+				receivertownid = #{receivertownid,jdbcType=INTEGER},
+			</if>
+			<if test="logisticsnumber != null">
+				logisticsnumber = #{logisticsnumber,jdbcType=VARCHAR},
+			</if>
+			<if test="invoice != null">
+				invoice = #{invoice,jdbcType=INTEGER},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.tl.khadmin.bean.Order">
+		update khorder
+		set orderid = #{orderid,jdbcType=VARCHAR},
+		sender = #{sender,jdbcType=VARCHAR},
+		senderphone = #{senderphone,jdbcType=VARCHAR},
+		sendercompany = #{sendercompany,jdbcType=VARCHAR},
+		sendvipid = #{sendvipid,jdbcType=INTEGER},
+		sendvipname = #{sendvipname,jdbcType=VARCHAR},
+		sendermobile = #{sendermobile,jdbcType=VARCHAR},
+		senderaddress = #{senderaddress,jdbcType=VARCHAR},
+		senderremark = #{senderremark,jdbcType=VARCHAR},
+		receiver = #{receiver,jdbcType=VARCHAR},
+		receiverphone = #{receiverphone,jdbcType=VARCHAR},
+		receivercompany = #{receivercompany,jdbcType=VARCHAR},
+		receivermobile = #{receivermobile,jdbcType=VARCHAR},
+		receiveraddress = #{receiveraddress,jdbcType=VARCHAR},
+		receiverremark = #{receiverremark,jdbcType=VARCHAR},
+		senderproid = #{senderproid,jdbcType=INTEGER},
+		sendercityid = #{sendercityid,jdbcType=INTEGER},
+		senderdistrictid = #{senderdistrictid,jdbcType=INTEGER},
+		sendertownid = #{sendertownid,jdbcType=INTEGER},
+		senderpcdt = #{senderpcdt,jdbcType=VARCHAR},
+		receiverproid = #{receiverproid,jdbcType=INTEGER},
+		receivercityid = #{receivercityid,jdbcType=INTEGER},
+		receiverdistrictid = #{receiverdistrictid,jdbcType=INTEGER},
+		receiverpcdt = #{receiverpcdt,jdbcType=VARCHAR},
+		deliverytype = #{deliverytype,jdbcType=INTEGER},
+		pickupgoodstime = #{pickupgoodstime,jdbcType=TIMESTAMP},
+		orgid = #{orgid,jdbcType=INTEGER},
+		orgname = #{orgname,jdbcType=VARCHAR},
+		orgaddress = #{orgaddress,jdbcType=VARCHAR},
+		headid = #{headid,jdbcType=INTEGER},
+		headname = #{headname,jdbcType=VARCHAR},
+		destid = #{destid,jdbcType=INTEGER},
+		destname = #{destname,jdbcType=VARCHAR},
+		receiptno = #{receiptno,jdbcType=VARCHAR},
+		receiptnum = #{receiptnum,jdbcType=INTEGER},
+		goodsno = #{goodsno,jdbcType=VARCHAR},
+		goodsname = #{goodsname,jdbcType=VARCHAR},
+		goodsnum = #{goodsnum,jdbcType=INTEGER},
+		weight = #{weight,jdbcType=REAL},
+		volume = #{volume,jdbcType=REAL},
+		goodsnummod = #{goodsnummod,jdbcType=INTEGER},
+		weightmod = #{weightmod,jdbcType=REAL},
+		volumemod = #{volumemod,jdbcType=REAL},
+		goodsvalue = #{goodsvalue,jdbcType=REAL},
+		premiumrate = #{premiumrate,jdbcType=REAL},
+		goodsclassifyid = #{goodsclassifyid,jdbcType=INTEGER},
+		goodsclassifyname = #{goodsclassifyname,jdbcType=VARCHAR},
+		goodscategoryid = #{goodscategoryid,jdbcType=INTEGER},
+		goodscategoryname = #{goodscategoryname,jdbcType=VARCHAR},
+		packtype = #{packtype,jdbcType=INTEGER},
+		agencyfund = #{agencyfund,jdbcType=REAL},
+		agencyfundrate = #{agencyfundrate,jdbcType=REAL},
+		agencyfundfee = #{agencyfundfee,jdbcType=REAL},
+		transportway = #{transportway,jdbcType=INTEGER},
+		paytype = #{paytype,jdbcType=INTEGER},
+		ifnotifydispatch = #{ifnotifydispatch,jdbcType=INTEGER},
+		dispatchtype = #{dispatchtype,jdbcType=INTEGER},
+		settletype = #{settletype,jdbcType=INTEGER},
+		freightfee = #{freightfee,jdbcType=REAL},
+		pickupfee = #{pickupfee,jdbcType=REAL},
+		securefee = #{securefee,jdbcType=REAL},
+		deliveryfee = #{deliveryfee,jdbcType=REAL},
+		upstairsfee = #{upstairsfee,jdbcType=REAL},
+		freightpoundage = #{freightpoundage,jdbcType=REAL},
+		freightrate = #{freightrate,jdbcType=REAL},
+		freightcollectfee = #{freightcollectfee,jdbcType=REAL},
+		sendfee = #{sendfee,jdbcType=REAL},
+		userid = #{userid,jdbcType=INTEGER},
+		username = #{username,jdbcType=VARCHAR},
+		state = #{state,jdbcType=INTEGER,typeHandler=com.tl.khadmin.util.EnumTypeHandler},
+		remark = #{remark,jdbcType=VARCHAR},
+		createtime = #{createtime,jdbcType=TIMESTAMP},
+		creditmonth = #{creditmonth,jdbcType=INTEGER},
+		labellingfee = #{labellingfee,jdbcType=REAL},
+		premiumfee = #{premiumfee,jdbcType=REAL},
+		ordersn = #{ordersn,jdbcType=VARCHAR},
+		orgphone = #{orgphone,jdbcType=VARCHAR},
+		picker = #{picker,jdbcType=VARCHAR},
+		pickerphone = #{pickerphone,jdbcType=VARCHAR},
+		orderdeposit = #{orderdeposit,jdbcType=REAL},
+		receivertownid = #{receivertownid,jdbcType=INTEGER},
+		invoice = #{invoice,jdbcType=INTEGER},
+		logisticsnumber = #{logisticsnumber,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateOrderCredit" parameterType="Map">
+		update khorder
+		set
+		state = #{orderstatus,jdbcType=INTEGER}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="selectOrderByPage" parameterType="Map" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from khorder
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="startTime!=null and startTime!=''">
+				and createTime &gt;= #{startTime,jdbcType=TIMESTAMP}
+			</if>
+			<if test="endTime!=null and endTime!=''">
+				and createTime &lt;= #{endTime,jdbcType=TIMESTAMP}
+			</if>
+			<if test="orderid!=null and orderid!=''">
+				and orderid LIKE CONCAT(CONCAT('%',
+				#{orderid,jdbcType=VARCHAR}),'%')
+			</if>
+			<if test="sender!=null and sender!=''">
+				and sender LIKE CONCAT(CONCAT('%',
+				#{sender,jdbcType=VARCHAR}),'%')
+			</if>
+			<if test="receiver!=null and receiver!=''">
+				and receiver LIKE CONCAT(CONCAT('%',
+				#{receiver,jdbcType=VARCHAR}),'%')
+			</if>
+			<if test="username!=null and username!=''">
+				and username LIKE CONCAT(CONCAT('%',
+				#{username,jdbcType=VARCHAR}),'%')
+			</if>
+			<if test="state!=null">
+				and state = #{state,jdbcType=INTEGER}
+			</if>
+		</trim>
+		order by createTime desc
+	</select>
+
+	<select id="selectStoredValue" parameterType="Map" resultType="java.lang.Integer">
+		select count(id) from khorder
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="startTime!=null and startTime!=''">
+				and createtime &gt;= #{startTime,jdbcType=INTEGER}
+			</if>
+			<if test="endTime!=null and endTime!=''">
+				and createtime &lt;= #{endTime,jdbcType=INTEGER}
+			</if>
+			<if test="state!=null">
+				and state = #{state,jdbcType=INTEGER}
+			</if>
+		</trim>
+	</select>
+	
+</mapper>
