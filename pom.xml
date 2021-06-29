@@ -6,13 +6,6 @@
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>supplieradmin Maven Webapp</name>
-  <repositories>
-	  <repository>
-	    <id>thirdparty</id>
-	    <name>3rd party</name>
-	    <url>http://192.168.88.118:8081/nexus/content/repositories/thirdparty</url>
-	  </repository>
-  </repositories>
   <properties>  
         <!-- spring版本号 -->  
         <spring.version>4.0.2.RELEASE</spring.version>  
